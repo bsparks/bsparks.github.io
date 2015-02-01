@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Games on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/games/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Thu, 12 Apr 2012 08:40:00 MST</updated>
+    
+    <item>
+      <title>Mine Mars</title>
+      <link>http://bsparks.github.io/2012/04/12/Mine-Mars/</link>
+      <pubDate>Thu, 12 Apr 2012 08:40:00 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/04/12/Mine-Mars/</guid>
+      <description>&lt;p&gt;My friend John has been working on a WebGL game for some time now, and he&amp;rsquo;s decided to do a kickstarter for it. I&amp;rsquo;ve contributed a few bits of code and a dash of inspiration to this project. Check it out!&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.kickstarter.com/projects/1355251822/mine-mars-a-voxel-based-javascript-webgl-adventure/widget/video.html&#34; frameborder=&#34;0&#34; width=&#34;480px&#34; height=&#34;360px&#34;&gt;&lt;/iframe&gt;
+&lt;iframe src=&#34;http://www.kickstarter.com/projects/1355251822/mine-mars-a-voxel-based-javascript-webgl-adventure/widget/card.html&#34; frameborder=&#34;0&#34; width=&#34;220px&#34; height=&#34;380px&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chainworlds - a fun gameplay option</title>
+      <link>http://bsparks.github.io/2011/08/30/Chainworlds---a-fun-gameplay-option/</link>
+      <pubDate>Tue, 30 Aug 2011 23:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/08/30/Chainworlds---a-fun-gameplay-option/</guid>
+      <description>&lt;p&gt;Lately I&amp;rsquo;ve been playing &lt;a href=&#34;http://www.minecraft.net&#34;&gt;Minecraft &lt;/a&gt;a lot. Not only is it a fun game, but I have been working on some voxel type things myself, and I think that it&amp;rsquo;s important to be knowledgeable about the main game. (how can I create a game like it if I&amp;rsquo;m not an avid player?) Normal single player tends to get boring however, especially in the vanilla game. There are plenty of interesting mods, but even with that you will eventually crave some sort of community interaction. Another thing that the community has come up with are special maps and game types that you can play. Most of them are driven via the forums and rules and scoring are based pretty much on the honor system.&lt;/p&gt;
+
+&lt;p&gt;One type in particular I have found to be very interesting, that&amp;rsquo;s the Chainworld or &amp;ldquo;Pass It On&amp;rdquo;.  Basically how it works is that one person starts playing the single player game. They play for an hour or two, and then zip up the save file and upload it to the forums.  When you are ready to participate, you create a post and mark it &amp;ldquo;TAKEN&amp;rdquo;. Then you download the file and play for a couple of hours. While you&amp;rsquo;re in the world you get to see what your predecessors have built and found. When you are done, zip up the save folder and re-upload it for the next person. Then you mark your forum post as &amp;ldquo;RETURNED&amp;rdquo; and make a few comments about what you did and any notes that you might have for the next person. The rules are usually made up by the person who starts the chain world, but they are usually very similar: Don&amp;rsquo;t cheat, Don&amp;rsquo;t destroy other people&amp;rsquo;s creations, basically, just don&amp;rsquo;t be an ass. Ultimately, you can always revert to the previous &amp;ldquo;good&amp;rdquo; player&amp;rsquo;s run in the event that a &amp;ldquo;bad&amp;rdquo; player gets ahold of it.&lt;/p&gt;
+
+&lt;p&gt;I think that for a sandbox world this type of gameplay should be integrated into the game itself. Much like choosing CTF or Deathmatch you would choose Chainworld. From there a server can manage a list of worlds. Instead of having to monitor a forum post however the game could checkout the file automatically and download it into your play space. An in game timer system could watch the clock for you while you play, and automatically upload and check the map back in.  There could even be other game manage features like instead of a time limit, give a life limit or something.&lt;/p&gt;
+
+&lt;p&gt;Of course in true multiplayer you could have a similar experience except that the players would potentially be there at the same time. I think there is still something of an added mystery with the single player version, and you don&amp;rsquo;t have to worry about lag.&lt;/p&gt;
+
+&lt;p&gt;Here are a couple that I&amp;rsquo;ve played on:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.minecraftforum.net/topic/586880-passiton-tayas-edition/&#34;&gt;http://www.minecraftforum.net/topic/586880-passiton-tayas-edition/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.minecraftforum.net/topic/580503-pass-pass-it-on-%E2%96%83%E2%96%85%E2%96%87-a-quiet-beach-%E2%96%87%E2%96%85%E2%96%83/&#34;&gt;http://www.minecraftforum.net/topic/580503-pass-pass-it-on-%E2%96%83%E2%96%85%E2%96%87-a-quiet-beach-%E2%96%87%E2%96%85%E2%96%83/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

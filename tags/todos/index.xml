@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Todos on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/todos/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Thu, 05 Jan 2012 14:40:00 MST</updated>
+    
+    <item>
+      <title>Resolutions just in time for the apocalypse</title>
+      <link>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</link>
+      <pubDate>Thu, 05 Jan 2012 14:40:00 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</guid>
+      <description>&lt;p&gt;Well I usually don&amp;rsquo;t make New Year&amp;rsquo;s resolutions. That way I don&amp;rsquo;t have to deal with any of the disappointment of not following through. However, this year for some reason I&amp;rsquo;m inclined to make a few. I have been inspired and motivated to get better and smarter by stuff like this: &lt;a href=&#34;http://david-hu.com/2012/01/05/my-experiment-in-daily-idea-generation.html&#34; target=&#34;_blank&#34;&gt;Idea Experiment&lt;/a&gt; and &lt;a href=&#34;http://developerbookclub.net/&#34; target=&#34;_blank&#34;&gt;Developer Book Club&lt;/a&gt;. Not that I&amp;rsquo;m not always about learning new stuff, but I guess those sites (and others) have motivated me to post this at least and try to hold myself accountable.
+&lt;ul&gt;
+    &lt;li&gt;Read &lt;a href=&#34;http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34; target=&#34;_blank&#34;&gt;Clean Code&lt;/a&gt; - I purchased the book in Dec of 2010 according to Amazon, haven&amp;rsquo;t read it yet. Just about any experienced programmer I read about tends to recommend this one.&lt;/li&gt;
+    &lt;li&gt;Finish &lt;a href=&#34;http://www.facebook.com/forthemoonking&#34; target=&#34;_blank&#34;&gt;For the Moon King&lt;/a&gt; in some form. Back in August I hit a brick wall pretty hard on this one. Got the game almost to the point of being ready to release on the Xbox 360, however I haven&amp;rsquo;t been able to figure out some showstopping performance issues. My guess is that I&amp;rsquo;m doing something wrong :) I have a action plan for this item already, more about that later.&lt;/li&gt;
+    &lt;li&gt;Do a month of idea generation, similar to what is described in the blog post above.&lt;/li&gt;
+    &lt;li&gt;Keep posting tutorials on XNA (&lt;a href=&#34;http://www.elderscrolls.com/skyrim/&#34; target=&#34;_blank&#34;&gt;Skyrim&lt;/a&gt; is to blame for the lag on that one). &amp;ldquo;I used to write some decent tutorials for XNA, until I took an arrow in the knee.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+Maybe there should be more? Dunno, I&amp;rsquo;ll just edit this post and add some if I think they are needed. I had some general &amp;ldquo;ideas&amp;rdquo; but I think those are prolly gonna be best for the idea generator time.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>XNA Color Formatted Text &middot; Ben Sparks</title>
+
+  
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="superior code &middot; Ben Sparks" />
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body class="theme-base-pp">
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
+      <h1>Ben Sparks</h1>
+      
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+
+    </ul>
+
+      <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      
+      
+      <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      
+
+    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+
+<div class="content container">
+  <div class="post">
+    <h1>XNA Color Formatted Text</h1>
+    <span class="post-date">May 16, 2010 &middot; 3 minute read</span>
+
+    <div class="tags-list">
+        Tags:
+        
+        <span class="label label-info">
+            <a href="/tags/c">c#</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/programming">programming</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/dotNet">dotNet</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/xna">xna</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/game-development">game development</a>
+        </span>
+        
+    </div>
+
+    <p>I recently have been working on a simple &ldquo;old school&rdquo; rpg game for XNA. One of the features that I want to have is scrolling text for combat and other messages that are given to the player. What I am talking about might look like this:
+<blockquote>
+<h3>You swing at the <strong><span style="color: #ff0000;">goblin</span></strong><span style="color: #ff0000;"> </span>and hit for <strong><span style="color: #00ccff;">8</span></strong> damage.</h3>
+</blockquote>
+Well, there isn&rsquo;t any built in method to draw text to the screen and have the colors change in one string. Pretty much the only way (or at least the easiest way) to accomplish this is to use multiple DrawString calls on the SpriteBatch. When thinking about that I didn&rsquo;t think it would be a terribly difficult task, but I decided to do a google search for any already made solutions. I found an article on the <a href="http://www.xnawiki.com">XNAWiki</a> called <a href="http://www.xnawiki.com/index.php?title=Inline_Color_Code_Processing">Inline Color Code Processing</a> that claims to (I haven&rsquo;t tried it) do the trick. When I examined it though, I found that I couldn&rsquo;t be happy with their implementation. They chose to define a set number of colors and then reference them in the string using an integer index. That to me seemed very limited, and even though my project is simple, I&rsquo;d rather not hard code in a bunch of colors. What I wanted is to be able to type in a color in the string and have it parse out to the color I wanted, much like HTML or BBCODE would work. The best way I could think of to do this is using HEX values, just like HTML or CSS would work. Unfortunately, getting a color from HEX is another thing that isn&rsquo;t built into XNA. So, back to google and I found <a title="The Dead Pixel Society" href="http://www.thedeadpixelsociety.com/2010/04/hex-colors/" target="_blank">this blog</a> that had the extensions I needed already worked out! Ok, fantastic, now the final piece, I just needed to write up a function to display the text. It actually ended up being pretty easy and perhaps it&rsquo;s not the best implementation, but it works perfectly. To use it, you setup your string like so: &ldquo;You attack the [color:#FFFF0000]goblin[/color] and hit for [color:#FF00FF00]8[/color] damage.&rdquo; Of course, just as the extension is converting the HEX to actual colors, you can convert the colors to HEX when you are making the string and use some of the built in colors like Color.Red.ToHex(true).</p>
+
+<pre><code class="language-csharp">public static void DrawColorFormattedText(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, string text)
+{
+    Color defaultColor = Color.White;
+
+    // only bother if we have color commands involved
+    if (text.Contains(&quot;[color:&quot;))
+    {
+        // how far in x to offset from position
+        int currentOffset = 0;
+
+        // example:
+        // string.Format(&quot;You attempt to hit the [color:#FFFF0000]{0}[/color] but [color:{1}]MISS[/color]!&quot;,
+        // currentMonster.Name, Color.Red.ToHex(true));
+        string[] splits = text.Split(new string[] { &quot;[color:&quot; }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var str in splits)
+        {
+            // if this section starts with a color
+            if (str.StartsWith(&quot;#&quot;))
+            {
+                // #AARRGGBB
+                // #FFFFFFFFF
+                // #123456789
+                string color = str.Substring(0, 9);
+
+                // any subsequent msgs after the [/color] tag are defaultColor
+                string[] msgs = str.Substring(10).Split(new string[] { &quot;[/color]&quot; }, StringSplitOptions.RemoveEmptyEntries);
+
+                // always draw [0] there should be at least one
+                spriteBatch.DrawString(font, msgs[0], position + new Vector2(currentOffset, 0), color.ToColor());
+                currentOffset += (int)font.MeasureString(msgs[0]).X;
+
+                // there should only ever be one other string or none
+                if(msgs.Length == 2)
+                {
+                    spriteBatch.DrawString(font, msgs[1], position + new Vector2(currentOffset, 0), defaultColor);
+                    currentOffset += (int)font.MeasureString(msgs[1]).X;
+                }
+            }
+            else
+            {
+                spriteBatch.DrawString(font, str, position + new Vector2(currentOffset, 0), defaultColor);
+                currentOffset += (int)font.MeasureString(str).X;
+            }
+        }
+    }
+    else
+    {
+        // just draw the string as ordered
+        spriteBatch.DrawString(font, text, position, defaultColor);
+    }
+}
+</code></pre>
+
+<p>And here it is, pics or it didn&rsquo;t happen :)</p>
+
+<p>[caption id=&ldquo;attachment_147&rdquo; align=&ldquo;alignleft&rdquo; width=&ldquo;384&rdquo; caption=&ldquo;Colored Rpg Text&rdquo;]<a href="http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg"><img class="size-full wp-image-147" title="coloredTextEx" src="http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg" alt="" width="384" height="191" /></a>[/caption]</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+</div>
+
+<script src="http://bsparks.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

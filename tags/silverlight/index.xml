@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Silverlight on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/silverlight/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Wed, 24 Mar 2010 00:42:44 MST</updated>
+    
+    <item>
+      <title>Silverlight Experiments</title>
+      <link>http://bsparks.github.io/2010/03/24/Silverlight-Experiments/</link>
+      <pubDate>Wed, 24 Mar 2010 00:42:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2010/03/24/Silverlight-Experiments/</guid>
+      <description>&lt;p&gt;I haven&amp;rsquo;t stopped working on XNA game development, but I have had to take some time recently to further hone my &lt;a href=&#34;http://www.silverlight.net&#34;&gt;Silverlight &lt;/a&gt;skills. Silverlight 4 RC was recently released and the full version should be out in a month or so, so I decided that I better start playing with it now (in reality, I should have been playing with it since the beta&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;One of the new controls that I was most excited about is the WebBrowser control. You would think that already being in a web browser, having the ability to render HTML wouldn&amp;rsquo;t be that important within Silverlight, but it is. The good news is, this will help make that much easier. The bad news is, it only works in Out of Browser mode. I assume this is per the usual security concerns that really hinder development on the web IMHO. But, once it becomes a trusted application that the user has chosen to install, then you can use it. &lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/03/sl4_browser.png&#34;&gt;&lt;img class=&#34;alignright size-medium wp-image-126&#34; title=&#34;sl4_browser&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/03/sl4_browser-300x116.png&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;116&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The following properties are the most important ones when working with the WebBrowser control:
+&lt;ul&gt;
+    &lt;li&gt;Source: gets or sets the URI that should be rendered in the WebBrowser control&lt;/li&gt;
+    &lt;li&gt;Navigate: specifies the URI that should be loaded in the control (works identical to the Source property)&lt;/li&gt;
+    &lt;li&gt;NavigateToString: you can also display an on-the-fly generated string of HTML. This can be done using this method.&lt;/li&gt;
+&lt;/ul&gt;
+Another great new control is the RichTextBox.&lt;/p&gt;
+
+&lt;p&gt;This new control includes clipboard support, text formatting and BiDi (Bidirectional) text support for input and output. The control also enables applications to show rich text and allows users to input formatted text (Bold, Italic, Underline, Font family, Font size and Font color), highlighting of text, and embedded elements such as Hyperlinks and Images.&lt;/p&gt;
+
+&lt;p&gt;Another useful feature is Silverlight&amp;rsquo;s Drop Target API. This feature allows end users to drag &amp;amp; drop word documents directly in to the RichTextBox control. The control also can return Xaml allowing the format of rich text to easily be stored and retrieved.&lt;/p&gt;
+
+&lt;p&gt;I have created a section on this site for &lt;a href=&#34;http://superiorcode.com/blog/?page_id=105&#34;&gt;Silverlight Demos&lt;/a&gt; that I will be posting various experiments to. At the moment, there is only one, and it is Silverlight 3, but soon I will post more.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

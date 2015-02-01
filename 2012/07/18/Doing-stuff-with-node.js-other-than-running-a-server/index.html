@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Doing stuff with node.js other than running a server &middot; Ben Sparks</title>
+
+  
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="superior code &middot; Ben Sparks" />
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body class="theme-base-pp">
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
+      <h1>Ben Sparks</h1>
+      
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+
+    </ul>
+
+      <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      
+      
+      <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      
+
+    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Doing stuff with node.js other than running a server</h1>
+    <span class="post-date">Jul 18, 2012 &middot; 6 minute read</span>
+
+    <div class="tags-list">
+        Tags:
+        
+        <span class="label label-info">
+            <a href="/tags/javascript">javascript</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/node.js">node.js</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/tutorials">tutorials</a>
+        </span>
+        
+    </div>
+
+    
+
+<p>Just about everybody who&rsquo;s doing something with <a href="http://nodejs.org/">node.js</a> is creating a server. In fact, node.js is often referred to
+as a &ldquo;server-side&rdquo; javascript.  In fact here&rsquo;s a great getting started tutorial on
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/learning-serverside-javascript-with-node-js/">net.tuts+</a>. That tutorial covers
+a couple of things beyond the &ldquo;hello world&rdquo;, creating a simple HTTP server, and creating a live Twitter stream.
+Anyway, I think that shows my point that most tutorials and things that people are going to do about node.js
+involve either running a server or hooking up to some internet API. While I realize that today&rsquo;s world is online,
+and I certainly don&rsquo;t think that it isn&rsquo;t short of awesome to do these things, I think that doing some every day
+offline tasks using javascript is <em>also</em> awesome. So this will be the first article in possibly a
+series of &ldquo;Doing stuff with node.js other than running a server&rdquo;.</p>
+
+<p>I&rsquo;m going to start by going over some real world problems that I have actually run into at work, and how to solve them using node.js.</p>
+
+<h3 id="toc_0">The Problem</h3>
+
+<p>The design team has created several icons of various sizes for use as teacher avatars throughout the site. Upon opening the teacher folder, I see there are several sub folders and it is clear that the icons are to be organized by the dimensions of the image. There are 29x29, 40x40, 85x85, and 112x112 size folders. Great, ok so I immediately think when I&rsquo;m using them in the website, we can just store the name of the image, and then change folders to get the size depending on where we are in the site. I open the 29x29 folder and see images like &ldquo;teacher_apple.jpg&rdquo; and &ldquo;teacher_male.jpg&rdquo;, I open the 40x40 folder and see things like &ldquo;apple_40x40.jpg&rdquo; and &ldquo;male_40x40.jpg&rdquo;. Way to be consistent guys! Ok, so each folder has only about 14 images inside, and I could go through one by one and rename them, but as a programmer that sounds hideously boring and lame! So here we go, even if it takes longer to write a javascript program to do it for me, it&rsquo;ll be more fun! Plus the next time they do it, I&rsquo;ll be ready for them!</p>
+
+<h3 id="toc_1">The Solution</h3>
+
+<p>Ok, so the first thing that you&rsquo;re gonna want to do is have the node <a href="http://nodejs.org/api/">docs</a> open, I can&rsquo;t remember all the commands,
+if you can, good for you ;) We want to make modifications to the file system, so we&rsquo;ll be using commands from that library.
+Also we&rsquo;ll include the path library to make the file paths easier to work with. So first thing let&rsquo;s just read one of the
+folders contents and make sure we have that down. I&rsquo;m creating a file called cleanup.js in the same folder as I have
+the &ldquo;teacher&rdquo; images folder from the designers.</p>
+
+<pre><code class="language-javascript">var fs = require(&quot;fs&quot;),
+    p = require(&quot;path&quot;);
+
+var path = &quot;teacher/40x40&quot;;
+
+fs.readdir(p.join(process.cwd(), path), function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&lt;len;i++) {
+            console.log(files[i]);
+        }
+    }
+});
+</code></pre>
+
+<p>For the most part I think the docs should explain what all that does, so next let&rsquo;s rename the files instead of just printing
+them out. To see this in action simply type: <strong>node cleanup.js</strong></p>
+
+<pre><code class="language-javascript">var fs = require(&quot;fs&quot;),
+    p = require(&quot;path&quot;);
+
+var path = &quot;teacher/40x40&quot;,
+    folder = p.join(process.cwd(), path);
+
+fs.readdir(folder, function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&lt;len;i++) {
+            var original = files[i],
+                modified = original.replace(&quot;_40x40&quot;, &quot;&quot;),
+                callback = (function(o, m) { return function(err) {
+                    if(!err) {
+                        console.log(o + &quot; --&gt; &quot; + m);
+                    } else {
+                        console.log(&quot;error&quot;, err);
+                    }
+                }; }(original, modified));
+
+            fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+        }
+    }
+});
+</code></pre>
+
+<p>Ok, great so that works. I&rsquo;ve already realized that hard coding the path in there isn&rsquo;t going to be useful for long.
+At the very least, each folder I want to run this on I have to change the path, and change the string that I want to
+replace. Instead it&rsquo;d be cool if I could take in parameters from the command line. While you can do this with just
+the built in libraries, I happen to know and love another helper library for this
+called <a href="https://github.com/visionmedia/commander.js/">Commander</a>. If you don&rsquo;t already know how to use NPM to install
+packages, you&rsquo;ll want to read up on that, but for now, just type: <strong><em>npm install commander</em></strong> in the same folder as the
+script. Commander lets you specify option flags as well as commands and comes with built in help. So now we&rsquo;ll modify the program to
+be a little more useful.</p>
+
+<pre><code class="language-javascript">var fs = require(&quot;fs&quot;),
+    p = require(&quot;path&quot;),
+    app = require(&quot;commander&quot;);
+
+function renameX(folder, find, replaceWith) {
+    var flags, pattern, regex;
+
+    // change to the defined cwd
+    process.chdir(app.cwd);
+
+    // default to empty string for optional replacement
+    if(!replaceWith) {
+        replaceWith = &quot;&quot;;
+    }
+
+    // regex from string credit to &quot;Anonymous&quot; http://stackoverflow.com/a/874742
+    if(find[0] === '/') {
+        flags = find.replace(/.*\/([gimy]*)$/, '$1');
+        pattern = find.replace(new RegExp('^/(.*?)/'+flags+'$'), '$1');
+        regex = new RegExp(pattern, flags);
+    } else {
+        regex = find; // just simple string
+    }
+
+    fs.readdir(folder, function(err, files) {
+        if(!err) {
+            for(var i=0, len = files.length;i&lt;len;i++) {
+                var original = files[i],
+                    modified = original.replace(regex, replaceWith),
+                    callback = (function(o, m) { return function(err) {
+                        if(!err) {
+                            console.log(o + &quot; --&gt; &quot; + m);
+                        } else {
+                            console.log(&quot;error&quot;, err);
+                        }
+                    }; }(original, modified));
+
+                fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+            }
+        }
+    });
+}
+
+// optionally allow us to run from another starting point
+app.option(&quot;-w, --cwd [dir]&quot;, &quot;set the working path&quot;, process.cwd());
+
+// setup the main renaming command
+app
+    .command(&quot;rx &lt;folder&gt; &lt;find&gt; [replaceWith]&quot;)
+    .description(&quot;rename all files in a folder using a regex replace&quot;)
+    .action(renameX);
+
+// parse the arguments and follow through
+app.parse(process.argv);
+</code></pre>
+
+<p>I wrapped the original logic inside a function, the params of the function determine what to do. The arguments passed into Commander&rsquo;s syntax are what gets passed into the function. The &lt;&gt; means required, and the [] is optional. I also created one option so that it can be executed in the context of another directory. That too is optional, and the final argument in that is the default (process.cwd()). So now we can type: <strong>node cleanup.js rx &ldquo;./teacher/40x40&rdquo; &ldquo;_40x40&rdquo;</strong> ; I&rsquo;ve left off the final argument <strong>replaceWith</strong> because it&rsquo;s optional, and I&rsquo;ve defaulted it to &ldquo;&rdquo; in the function. This should give you output something like this, depending on your filenames.</p>
+
+<pre><code>
+C:\Users\Ben\Documents\node\useful things&gt;node cleanup.js rx &quot;./teacher/40x40&quot; &quot;_40x40&quot;
+
+apple_40x40.jpg --&gt; apple.jpg
+arrow_40x40.jpg --&gt; arrow.jpg
+greenstar_40x40.jpg --&gt; greenstar.jpg
+fire_40x40.jpg --&gt; fire.jpg
+earth_40x40.jpg --&gt; earth.jpg
+mountain_40x40.jpg --&gt; mountain.jpg
+brain_40x40.jpg --&gt; brain.jpg
+stones_40x40.jpg --&gt; stones.jpg
+teacher_female_icon_40x40.png --&gt; teacher_female_icon.png
+polarbear_40x40.jpg --&gt; polarbear.jpg
+moon_40x40.jpg --&gt; moon.jpg
+water_40x40.jpg --&gt; water.jpg
+teacher_male_icon_40x40.png --&gt; teacher_male_icon.png
+umbrella_40x40.jpg --&gt; umbrella.jpg
+</code></pre>
+
+<p>So there we go, mission accomplished, it didn&rsquo;t take too much longer than manually renaming them. But just think, if there had been
+ 100 images in each folder, how much of a pain in the ass would that have been? Now we can just run the command on each folder,
+  and bulk cleanup the files.
+As I&rsquo;m finishing this up I can think of a few things that still need hammering out, but I&rsquo;ll save them for later.</p>
+
+<ul>
+<li>fs.readdir returns an array of files, technically even folders are also files, so they&rsquo;d be affected by the rename as well</li>
+<li>we should create a package.json file so that npm can install our dependencies for us</li>
+<li>consider installing it globally using the &ldquo;bin&rdquo; option so that we can just call &ldquo;cleanup&rdquo; from anywhere without having to
+call node or have the js file in the path</li>
+</ul>
+
+<p>There could be other things I haven&rsquo;t thought of, bugs, tests, who knows. It is only a quick utility script after all.
+If anyone has any suggestions leave a comment!</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+</div>
+
+<script src="http://bsparks.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

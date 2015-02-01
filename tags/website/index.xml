@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Website on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/website/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Mon, 26 Jan 2015 23:01:44 MST</updated>
+    
+    <item>
+      <title>First Post Using Hugo</title>
+      <link>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</link>
+      <pubDate>Mon, 26 Jan 2015 23:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</guid>
+      <description>&lt;p&gt;Well I&amp;rsquo;ve been thinking about switching from Wordpress to a static site generator for some time. Now I&amp;rsquo;ve done it.
+There are several generators out there, but I&amp;rsquo;ve decided to go with &lt;a href=&#34;http://hugo.spf13.com/&#34;&gt;Hugo&lt;/a&gt;.
+I don&amp;rsquo;t really get all that much benefit from the WYSIWYG aspects of Wordpress, and it just opens up yourself to hacking and spam because of the ability to
+edit online. I&amp;rsquo;m also not a huge fan of PHP, though the application has served me well enough for years I suppose.&lt;/p&gt;
+
+&lt;p&gt;Another reason is that it&amp;rsquo;ll force me to really grok markdown. So I decided to port all (most) of my older posts over from
+Wordpress. Sadly, I haven&amp;rsquo;t found a faster way to do it other than manually. The good news is that I never had all that many entries :)
+Oh and it helps that markdown and html are just fine together.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

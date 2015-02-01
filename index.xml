@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Mon, 26 Jan 2015 23:01:44 MST</updated>
+    
+    <item>
+      <title>First Post Using Hugo</title>
+      <link>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</link>
+      <pubDate>Mon, 26 Jan 2015 23:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</guid>
+      <description>&lt;p&gt;Well I&amp;rsquo;ve been thinking about switching from Wordpress to a static site generator for some time. Now I&amp;rsquo;ve done it.
+There are several generators out there, but I&amp;rsquo;ve decided to go with &lt;a href=&#34;http://hugo.spf13.com/&#34;&gt;Hugo&lt;/a&gt;.
+I don&amp;rsquo;t really get all that much benefit from the WYSIWYG aspects of Wordpress, and it just opens up yourself to hacking and spam because of the ability to
+edit online. I&amp;rsquo;m also not a huge fan of PHP, though the application has served me well enough for years I suppose.&lt;/p&gt;
+
+&lt;p&gt;Another reason is that it&amp;rsquo;ll force me to really grok markdown. So I decided to port all (most) of my older posts over from
+Wordpress. Sadly, I haven&amp;rsquo;t found a faster way to do it other than manually. The good news is that I never had all that many entries :)
+Oh and it helps that markdown and html are just fine together.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://bsparks.github.io/about/</link>
+      <pubDate>Mon, 26 Jan 2015 22:57:46 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/about/</guid>
+      <description>
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Wizard of the Web&lt;/h3&gt;
+
+&lt;p&gt;I am a web developer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2012 is almost over</title>
+      <link>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</link>
+      <pubDate>Mon, 03 Dec 2012 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</guid>
+      <description>&lt;p&gt;Well, here we are at the end of the year. I haven&amp;rsquo;t made very much progress on my resolutions. Perhaps next year will be better.&lt;/p&gt;
+
+&lt;p&gt;In other news I somewhat recently (August) got interested in angularjs, &lt;a href=&#34;http://angularjs.org&#34;&gt;http://angularjs.org&lt;/a&gt; It&amp;rsquo;s a pretty awesome javascript framework for making web applications. I plan to post some tutorials and other such things soon.&lt;/p&gt;
+
+&lt;p&gt;The twins are 9 months old now, and I just am starting to feel like I have a little more time to work on stuff. Perhaps next year&amp;rsquo;s resolutions will be achieved :D&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Doing stuff with node.js other than running a server</title>
+      <link>http://bsparks.github.io/2012/07/18/Doing-stuff-with-node.js-other-than-running-a-server/</link>
+      <pubDate>Wed, 18 Jul 2012 16:27:03 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/07/18/Doing-stuff-with-node.js-other-than-running-a-server/</guid>
+      <description>
+
+&lt;p&gt;Just about everybody who&amp;rsquo;s doing something with &lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt; is creating a server. In fact, node.js is often referred to
+as a &amp;ldquo;server-side&amp;rdquo; javascript.  In fact here&amp;rsquo;s a great getting started tutorial on
+&lt;a href=&#34;http://net.tutsplus.com/tutorials/javascript-ajax/learning-serverside-javascript-with-node-js/&#34;&gt;net.tuts+&lt;/a&gt;. That tutorial covers
+a couple of things beyond the &amp;ldquo;hello world&amp;rdquo;, creating a simple HTTP server, and creating a live Twitter stream.
+Anyway, I think that shows my point that most tutorials and things that people are going to do about node.js
+involve either running a server or hooking up to some internet API. While I realize that today&amp;rsquo;s world is online,
+and I certainly don&amp;rsquo;t think that it isn&amp;rsquo;t short of awesome to do these things, I think that doing some every day
+offline tasks using javascript is &lt;em&gt;also&lt;/em&gt; awesome. So this will be the first article in possibly a
+series of &amp;ldquo;Doing stuff with node.js other than running a server&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to start by going over some real world problems that I have actually run into at work, and how to solve them using node.js.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;The Problem&lt;/h3&gt;
+
+&lt;p&gt;The design team has created several icons of various sizes for use as teacher avatars throughout the site. Upon opening the teacher folder, I see there are several sub folders and it is clear that the icons are to be organized by the dimensions of the image. There are 29x29, 40x40, 85x85, and 112x112 size folders. Great, ok so I immediately think when I&amp;rsquo;m using them in the website, we can just store the name of the image, and then change folders to get the size depending on where we are in the site. I open the 29x29 folder and see images like &amp;ldquo;teacher_apple.jpg&amp;rdquo; and &amp;ldquo;teacher_male.jpg&amp;rdquo;, I open the 40x40 folder and see things like &amp;ldquo;apple_40x40.jpg&amp;rdquo; and &amp;ldquo;male_40x40.jpg&amp;rdquo;. Way to be consistent guys! Ok, so each folder has only about 14 images inside, and I could go through one by one and rename them, but as a programmer that sounds hideously boring and lame! So here we go, even if it takes longer to write a javascript program to do it for me, it&amp;rsquo;ll be more fun! Plus the next time they do it, I&amp;rsquo;ll be ready for them!&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;The Solution&lt;/h3&gt;
+
+&lt;p&gt;Ok, so the first thing that you&amp;rsquo;re gonna want to do is have the node &lt;a href=&#34;http://nodejs.org/api/&#34;&gt;docs&lt;/a&gt; open, I can&amp;rsquo;t remember all the commands,
+if you can, good for you ;) We want to make modifications to the file system, so we&amp;rsquo;ll be using commands from that library.
+Also we&amp;rsquo;ll include the path library to make the file paths easier to work with. So first thing let&amp;rsquo;s just read one of the
+folders contents and make sure we have that down. I&amp;rsquo;m creating a file called cleanup.js in the same folder as I have
+the &amp;ldquo;teacher&amp;rdquo; images folder from the designers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;);
+
+var path = &amp;quot;teacher/40x40&amp;quot;;
+
+fs.readdir(p.join(process.cwd(), path), function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&amp;lt;len;i++) {
+            console.log(files[i]);
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the most part I think the docs should explain what all that does, so next let&amp;rsquo;s rename the files instead of just printing
+them out. To see this in action simply type: &lt;strong&gt;node cleanup.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;);
+
+var path = &amp;quot;teacher/40x40&amp;quot;,
+    folder = p.join(process.cwd(), path);
+
+fs.readdir(folder, function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&amp;lt;len;i++) {
+            var original = files[i],
+                modified = original.replace(&amp;quot;_40x40&amp;quot;, &amp;quot;&amp;quot;),
+                callback = (function(o, m) { return function(err) {
+                    if(!err) {
+                        console.log(o + &amp;quot; --&amp;gt; &amp;quot; + m);
+                    } else {
+                        console.log(&amp;quot;error&amp;quot;, err);
+                    }
+                }; }(original, modified));
+
+            fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, great so that works. I&amp;rsquo;ve already realized that hard coding the path in there isn&amp;rsquo;t going to be useful for long.
+At the very least, each folder I want to run this on I have to change the path, and change the string that I want to
+replace. Instead it&amp;rsquo;d be cool if I could take in parameters from the command line. While you can do this with just
+the built in libraries, I happen to know and love another helper library for this
+called &lt;a href=&#34;https://github.com/visionmedia/commander.js/&#34;&gt;Commander&lt;/a&gt;. If you don&amp;rsquo;t already know how to use NPM to install
+packages, you&amp;rsquo;ll want to read up on that, but for now, just type: &lt;strong&gt;&lt;em&gt;npm install commander&lt;/em&gt;&lt;/strong&gt; in the same folder as the
+script. Commander lets you specify option flags as well as commands and comes with built in help. So now we&amp;rsquo;ll modify the program to
+be a little more useful.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;),
+    app = require(&amp;quot;commander&amp;quot;);
+
+function renameX(folder, find, replaceWith) {
+    var flags, pattern, regex;
+
+    // change to the defined cwd
+    process.chdir(app.cwd);
+
+    // default to empty string for optional replacement
+    if(!replaceWith) {
+        replaceWith = &amp;quot;&amp;quot;;
+    }
+
+    // regex from string credit to &amp;quot;Anonymous&amp;quot; http://stackoverflow.com/a/874742
+    if(find[0] === &#39;/&#39;) {
+        flags = find.replace(/.*\/([gimy]*)$/, &#39;$1&#39;);
+        pattern = find.replace(new RegExp(&#39;^/(.*?)/&#39;+flags+&#39;$&#39;), &#39;$1&#39;);
+        regex = new RegExp(pattern, flags);
+    } else {
+        regex = find; // just simple string
+    }
+
+    fs.readdir(folder, function(err, files) {
+        if(!err) {
+            for(var i=0, len = files.length;i&amp;lt;len;i++) {
+                var original = files[i],
+                    modified = original.replace(regex, replaceWith),
+                    callback = (function(o, m) { return function(err) {
+                        if(!err) {
+                            console.log(o + &amp;quot; --&amp;gt; &amp;quot; + m);
+                        } else {
+                            console.log(&amp;quot;error&amp;quot;, err);
+                        }
+                    }; }(original, modified));
+
+                fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+            }
+        }
+    });
+}
+
+// optionally allow us to run from another starting point
+app.option(&amp;quot;-w, --cwd [dir]&amp;quot;, &amp;quot;set the working path&amp;quot;, process.cwd());
+
+// setup the main renaming command
+app
+    .command(&amp;quot;rx &amp;lt;folder&amp;gt; &amp;lt;find&amp;gt; [replaceWith]&amp;quot;)
+    .description(&amp;quot;rename all files in a folder using a regex replace&amp;quot;)
+    .action(renameX);
+
+// parse the arguments and follow through
+app.parse(process.argv);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I wrapped the original logic inside a function, the params of the function determine what to do. The arguments passed into Commander&amp;rsquo;s syntax are what gets passed into the function. The &amp;lt;&amp;gt; means required, and the [] is optional. I also created one option so that it can be executed in the context of another directory. That too is optional, and the final argument in that is the default (process.cwd()). So now we can type: &lt;strong&gt;node cleanup.js rx &amp;ldquo;./teacher/40x40&amp;rdquo; &amp;ldquo;_40x40&amp;rdquo;&lt;/strong&gt; ; I&amp;rsquo;ve left off the final argument &lt;strong&gt;replaceWith&lt;/strong&gt; because it&amp;rsquo;s optional, and I&amp;rsquo;ve defaulted it to &amp;ldquo;&amp;rdquo; in the function. This should give you output something like this, depending on your filenames.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+C:\Users\Ben\Documents\node\useful things&amp;gt;node cleanup.js rx &amp;quot;./teacher/40x40&amp;quot; &amp;quot;_40x40&amp;quot;
+
+apple_40x40.jpg --&amp;gt; apple.jpg
+arrow_40x40.jpg --&amp;gt; arrow.jpg
+greenstar_40x40.jpg --&amp;gt; greenstar.jpg
+fire_40x40.jpg --&amp;gt; fire.jpg
+earth_40x40.jpg --&amp;gt; earth.jpg
+mountain_40x40.jpg --&amp;gt; mountain.jpg
+brain_40x40.jpg --&amp;gt; brain.jpg
+stones_40x40.jpg --&amp;gt; stones.jpg
+teacher_female_icon_40x40.png --&amp;gt; teacher_female_icon.png
+polarbear_40x40.jpg --&amp;gt; polarbear.jpg
+moon_40x40.jpg --&amp;gt; moon.jpg
+water_40x40.jpg --&amp;gt; water.jpg
+teacher_male_icon_40x40.png --&amp;gt; teacher_male_icon.png
+umbrella_40x40.jpg --&amp;gt; umbrella.jpg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So there we go, mission accomplished, it didn&amp;rsquo;t take too much longer than manually renaming them. But just think, if there had been
+ 100 images in each folder, how much of a pain in the ass would that have been? Now we can just run the command on each folder,
+  and bulk cleanup the files.
+As I&amp;rsquo;m finishing this up I can think of a few things that still need hammering out, but I&amp;rsquo;ll save them for later.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fs.readdir returns an array of files, technically even folders are also files, so they&amp;rsquo;d be affected by the rename as well&lt;/li&gt;
+&lt;li&gt;we should create a package.json file so that npm can install our dependencies for us&lt;/li&gt;
+&lt;li&gt;consider installing it globally using the &amp;ldquo;bin&amp;rdquo; option so that we can just call &amp;ldquo;cleanup&amp;rdquo; from anywhere without having to
+call node or have the js file in the path&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There could be other things I haven&amp;rsquo;t thought of, bugs, tests, who knows. It is only a quick utility script after all.
+If anyone has any suggestions leave a comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mine Mars</title>
+      <link>http://bsparks.github.io/2012/04/12/Mine-Mars/</link>
+      <pubDate>Thu, 12 Apr 2012 08:40:00 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/04/12/Mine-Mars/</guid>
+      <description>&lt;p&gt;My friend John has been working on a WebGL game for some time now, and he&amp;rsquo;s decided to do a kickstarter for it. I&amp;rsquo;ve contributed a few bits of code and a dash of inspiration to this project. Check it out!&lt;/p&gt;
+
+&lt;iframe src=&#34;http://www.kickstarter.com/projects/1355251822/mine-mars-a-voxel-based-javascript-webgl-adventure/widget/video.html&#34; frameborder=&#34;0&#34; width=&#34;480px&#34; height=&#34;360px&#34;&gt;&lt;/iframe&gt;
+&lt;iframe src=&#34;http://www.kickstarter.com/projects/1355251822/mine-mars-a-voxel-based-javascript-webgl-adventure/widget/card.html&#34; frameborder=&#34;0&#34; width=&#34;220px&#34; height=&#34;380px&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resolutions just in time for the apocalypse</title>
+      <link>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</link>
+      <pubDate>Thu, 05 Jan 2012 14:40:00 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</guid>
+      <description>&lt;p&gt;Well I usually don&amp;rsquo;t make New Year&amp;rsquo;s resolutions. That way I don&amp;rsquo;t have to deal with any of the disappointment of not following through. However, this year for some reason I&amp;rsquo;m inclined to make a few. I have been inspired and motivated to get better and smarter by stuff like this: &lt;a href=&#34;http://david-hu.com/2012/01/05/my-experiment-in-daily-idea-generation.html&#34; target=&#34;_blank&#34;&gt;Idea Experiment&lt;/a&gt; and &lt;a href=&#34;http://developerbookclub.net/&#34; target=&#34;_blank&#34;&gt;Developer Book Club&lt;/a&gt;. Not that I&amp;rsquo;m not always about learning new stuff, but I guess those sites (and others) have motivated me to post this at least and try to hold myself accountable.
+&lt;ul&gt;
+    &lt;li&gt;Read &lt;a href=&#34;http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34; target=&#34;_blank&#34;&gt;Clean Code&lt;/a&gt; - I purchased the book in Dec of 2010 according to Amazon, haven&amp;rsquo;t read it yet. Just about any experienced programmer I read about tends to recommend this one.&lt;/li&gt;
+    &lt;li&gt;Finish &lt;a href=&#34;http://www.facebook.com/forthemoonking&#34; target=&#34;_blank&#34;&gt;For the Moon King&lt;/a&gt; in some form. Back in August I hit a brick wall pretty hard on this one. Got the game almost to the point of being ready to release on the Xbox 360, however I haven&amp;rsquo;t been able to figure out some showstopping performance issues. My guess is that I&amp;rsquo;m doing something wrong :) I have a action plan for this item already, more about that later.&lt;/li&gt;
+    &lt;li&gt;Do a month of idea generation, similar to what is described in the blog post above.&lt;/li&gt;
+    &lt;li&gt;Keep posting tutorials on XNA (&lt;a href=&#34;http://www.elderscrolls.com/skyrim/&#34; target=&#34;_blank&#34;&gt;Skyrim&lt;/a&gt; is to blame for the lag on that one). &amp;ldquo;I used to write some decent tutorials for XNA, until I took an arrow in the knee.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+Maybe there should be more? Dunno, I&amp;rsquo;ll just edit this post and add some if I think they are needed. I had some general &amp;ldquo;ideas&amp;rdquo; but I think those are prolly gonna be best for the idea generator time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XNA Tutorial 2</title>
+      <link>http://bsparks.github.io/2011/11/10/XNA-Tutorial-2/</link>
+      <pubDate>Thu, 10 Nov 2011 08:51:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/10/XNA-Tutorial-2/</guid>
+      <description>&lt;p&gt;Welcome to the second tutorial in a series on XNA Game Development. In the &lt;a title=&#34;XNA Tutorial 1&#34; href=&#34;http://superiorcode.com/blog/?p=216&#34;&gt;first tutorial&lt;/a&gt; we learned how to get all of the tools needed and create the basic solution, as well as a little about game loops. Now we&amp;rsquo;re going to do something much more interesting than just displaying a blue screen. We&amp;rsquo;re going to display an image on the screen, and we&amp;rsquo;ll make it move around.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s build off of the previous solution, or create a new one if you don&amp;rsquo;t have that.
+&lt;h2&gt;Loading an Image&lt;/h2&gt;
+&lt;img src=&#34;/images/cat.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ok, so first off we need an image. For the purposes of this tutorial we&amp;rsquo;ll just grab any image from a quick search on Google. I have found a lovely image of a cartoon cat. That should do for now. Take your image and drag it over the &lt;strong&gt;Content&lt;/strong&gt;project in your solution. It should appear there as part of that project now. In XNA images are called Textures. There are both 2D and 3D textures, this is a 2D texture. In order to use the image in a game we need a reference to a Texture2D object. In the code the Texture2D object keeps track of all of the pixels in an image file. In order to get the data from the file into the object, we need to open and load the file. The Game class that we have derived from comes with a content manager built in. In the LoadContent method is where we will want to get the information from the image file into our texture object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;GraphicsDeviceManager graphics;
+SpriteBatch spriteBatch;
+Texture2D catTex;
+
+public Game1()
+{
+    graphics = new GraphicsDeviceManager(this);
+    Content.RootDirectory = &amp;quot;Content&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For now we have just created the Texture2D catTex as a private member of our Game class. Next in the LoadContent() method we will load the data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;&amp;lt;summary&amp;gt;
+/// LoadContent will be called once per game and is the place to load
+/// all of your content.
+///
+&amp;lt;/summary&amp;gt;
+protected override void LoadContent()
+{
+    // Create a new SpriteBatch, which can be used to draw textures.
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+
+    // TODO: use this.Content to load your game content here
+    catTex = Content.Load(&amp;quot;cat&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that we do not need to provide the file extension. Because there is only one file in the Content folder named &amp;ldquo;cat&amp;rdquo; XNA just pick that one. If we had cat.png and cat.jpg both in there, then we would need to specify. We can also create folders inside the content project in order to better separate the various types of content out. For now we can keep things simple, but later we will want to do this. Once a project gets bigger managing your resources will become more important.
+&lt;h2&gt;Rendering the Image&lt;/h2&gt;
+Ok, now that we have loaded the cat image into memory, lets display it on the screen. Everything that  we want to show on the screen goes in the Draw() method.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+///
+&lt;summary&gt; /// This is called when the game should draw itself.
+ /// &lt;/summary&gt;
+        ///Provides a snapshot of timing values.
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        // TODO: Add your drawing code here
+        spriteBatch.Begin();
+        spriteBatch.Draw(catTex, Vector2.Zero, Color.White);
+        spriteBatch.End();
+
+        base.Draw(gameTime);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;If you noticed before during the LoadContent() method that we instantiated a new instance of the spriteBatch and wondered what that was, now is the time to find out. The SpriteBatch is a special built in shader for XNA optimized for rendering textures to the screen. In game development when we render textures to the screen (and make them move about) we call them Sprites. A shader is a special program that gets executed on the graphics card telling it how to render. All modern graphics programming is done through the use of shaders. In the code above first we called spriteBatch.Begin(). Rather than drawing each instruction one at a time, you can batch together all of them into one call. We tell the spriteBatch to start paying attention, all of the following commands will be for the graphics card. When we are done, we tell it spriteBatch.End() so that it knows we have finished and can go ahead and send the instructions to the graphics card.&lt;/p&gt;
+
+&lt;p&gt;The Draw() method has several overloads, in this one the first thing it expects is a reference to a Texture2D object; i.e. which image to draw. The second parameter is the position on the screen that we want to draw the image. It is expecting a Vector2. A Vector2 represents a 2 dimensional vector, x and y coordinates. Beyond simply storing the x &amp;amp; y, you can perform all sorts of vector mathematics on them. Vectors are extremely important and something that you will need to use a lot. For now just know that I put in 0,0 for the coordinates, which is the upper left corner of the screen. The third and final parameter of this overload is a Color. The color is used to tint the image. Telling the draw method to use White will render the image as it is.  It is like shining a light on the image in the real world, white light would reflect off of the surface back to us and we would see it as it was. If we had a red flashlight, the color would blend in with the colors of the image and only tint it red. Tinting can be a very useful technique, but for now we&amp;rsquo;ll just render it as is.&lt;/p&gt;
+
+&lt;p&gt;Now that we have that code, go ahead and launch the program in debug mode and you should see your image rendered onto the screen!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-249&#34; title=&#34;xna_tut2_cat&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat-300x190.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;190&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;Moving it around&lt;/h2&gt;
+Ok, while that is exciting, I think that we&amp;rsquo;ll want to do something a little more interesting. Games do much more than just render images to the screen. Let&amp;rsquo;s make this cat move around! In order to do that we need to update the position that we draw it on the screen. First we&amp;rsquo;ll add a Vector2 to our game class so that we can keep track of the position at a higher scope from the Draw method. We&amp;rsquo;ll have it default to [0,0] still just like our old one, and then down in the Draw call we&amp;rsquo;ll replace Vector2.Zero with our new position value.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Texture2D catTex;
+        Vector2 catPos = Vector2.Zero;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    public Game1()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;spriteBatch.Draw(catTex, catPos, Color.White);
+[/code]&lt;/p&gt;
+
+&lt;p&gt;The Update() method is where we want to perform any of our calculations that are not directly about drawing things on the screen. You&amp;rsquo;ll notice that there is already a little bit of code in that method, it is testing the gamepad to see if the Back button has been pressed. When the back button is pressed, the game exits. XNA has built in classes that can be used to check various types of input devices, the keyboard, gamepad, mouse, etc. Just like they are checking the GamePadState, there is also the KeyboardState.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+        /// &lt;summary&gt;
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&#34;gameTime&#34;&gt;Provides a snapshot of timing values.&lt;/param&gt;
+        protected override void Update(GameTime gameTime)
+        {
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        // TODO: Add your update logic here
+        KeyboardState kbstate = Keyboard.GetState(PlayerIndex.One);
+        GamePadState gbstate = GamePad.GetState(PlayerIndex.One);
+
+        if (kbstate.IsKeyDown(Keys.Left))
+        {
+            catPos.X -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Right))
+        {
+            catPos.X += 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Up))
+        {
+            catPos.Y -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Down))
+        {
+            catPos.Y += 1;
+        }
+
+        catPos = Vector2.Add(catPos, gbstate.ThumbSticks.Left);
+
+        base.Update(gameTime);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;Since we want to eventually use this on the Xbox we&amp;rsquo;ll get both the keyboard state and the gamepad state. By default Update() is called 60 times every second. Each time it is called we will check on the status of the input devices. For the keyboard we&amp;rsquo;ll use the arrow keys. Left and right modify the X-Axis and Up and Down modify the Y-Axis. For the gamepad we will use the Left Analog stick. From the tests there you can see that we are modifying our cat&amp;rsquo;s pos (paws?). Since Update() is called before Draw() it will change where the graphics card is told to render the image to the screen. Since every frame we are moving it slightly it will give the illusion of floating across the screen. In reality we&amp;rsquo;re just drawing a still image over and over in a slightly different spot. It&amp;rsquo;s also important to note that in screen coordinates the top of the screen is Y Zero and Y moves positively towards the bottom of the screen. So in order to move &amp;ldquo;up&amp;rdquo; we subtract from Y. On the X-Axis the left side of the screen is X Zero and X moves positively to the right. It&amp;rsquo;s perfectly fine and possible to set our image to coordinates that are outside of the screen. If you run the program now you will see that using the arrow keys we can make the cat go off the screen or in any direction that we want.
+&lt;h2&gt;Next Time&amp;hellip;&lt;/h2&gt;
+So now we&amp;rsquo;ve taken our first steps into something that is much closer to a game than just clearing the screen blue, but from here the sky is the limit! In the next tutorial we&amp;rsquo;ll take a look at rendering multiple sprites to the screen, utilizing tint, drawing text, basic collision detection, and some &amp;ldquo;AI&amp;rdquo;. For this tutorial you can grab the all the files &lt;a href=&#34;http://superiorcode.com/download/xna_tuts/XnaTutorial2.rar&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XNA Tutorial 1</title>
+      <link>http://bsparks.github.io/2011/11/07/XNA-Tutorial-1/</link>
+      <pubDate>Mon, 07 Nov 2011 16:15:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/07/XNA-Tutorial-1/</guid>
+      <description>
+
+&lt;p&gt;Following along with the theme from Desert Code Camp, I have decided to start writing a series of XNA game development tutorials. This will be the first one, and will start at the very beginning.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;What is XNA?&lt;/h2&gt;
+
+&lt;p&gt;XNA is a game development framework created by Microsoft that has access to various game APIs through .NET. It can be used to create games for the Xbox 360, Windows Phone 7, and Windows PC. The framework provides classes and utilities to access various areas of games such as 2D and 3D graphics, sound, networking, and live services. In order to develop for the Xbox 360 and / or distribute games created on Microsoft&amp;rsquo;s App Hub, a $99/yr developer fee is required.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Here&amp;rsquo;s what you need to get started:&lt;/h2&gt;
+
+&lt;p&gt;In order to develop using XNA you need to use Visual Studio 2010. Currently you can choose between C# and VB. The Express editions (free) will work fine for this. So first thing, &lt;a href=&#34;http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express&#34; target=&#34;_blank&#34;&gt;download&lt;/a&gt; and install it. Personally, I prefer C# so (at least initially) all of my tutorials will be in that context. I doubt the translation between is terribly complex. Once that is installed you will then need to install the XNA Game Studio, which at the time of this writing is at version 4.0 Refresh. Here are the links, I&amp;rsquo;ve included the runtime distribution as well, for development, you need the first one.&lt;/p&gt;
+
+&lt;p&gt;XNA Game Studio 4.0 Refresh&lt;/p&gt;
+
+&lt;p&gt;Download page - &lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&#34;&gt;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&lt;/a&gt;&lt;/a&gt;
+Direct download link - &lt;a href=&#34;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&#34;&gt;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;XNA Framework Redistributable 4.0 Refresh&lt;/p&gt;
+
+&lt;p&gt;Download page - &lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&#34;&gt;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&lt;/a&gt;&lt;/a&gt;
+Direct download link - &lt;a href=&#34;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&#34;&gt;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&lt;/a&gt;&lt;/a&gt;
+&lt;h2&gt;Creating your first project&lt;/h2&gt;
+Now that you&amp;rsquo;ve got the tools installed, it&amp;rsquo;s time to fire up Visual Studio and create a new project.
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/VSP.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-221 aligncenter&#34; title=&#34;VSP&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/VSP-300x207.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;207&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;You will notice that there are a few different project templates to choose from, for now go ahead and pick Windows Game 4.0. Even if you want to develop for Xbox 360 it&amp;rsquo;s best to start with this type of project. You can develop most of the time in Windows, and then easily switch over to the Xbox when needed. Visual Studio will create for you a somewhat bare bones solution so that you can get started!&lt;/p&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;There are two types of projects that will be created, the first is the main game itself, and the second is a Content project. In the content project is where all of your games assets will go. Anything like images, sounds, 3d models, game levels, etc. are considered content and will go in there. First let&amp;rsquo;s take a look at the code.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 style=&#34;text-align: left;&#34;&gt;The Code&lt;/h2&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;You&amp;rsquo;ll notice at the top that by default several libraries have been included:&lt;/p&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These are all of the major XNA libraries. Each one covering a major aspect of the game application. For the most part they should be self explainatory, but we&amp;rsquo;ll go into them in more detail later. Next you&amp;rsquo;ll see the basic layout of a game. If you are new to any kind of game development the concept of a game loop might also be new. Normally a program is executed from top to bottom, and then when it goes past the final instructions it exits. For a game, obviously this isn&amp;rsquo;t desired behavior. So at some point we need to make sure that the program will keep running until the player decides to quit. In order to achieve this, you setup an infinite loop. At a basic level, it&amp;rsquo;s something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  while(true) {
+    // play!
+    if(done) {
+        break;
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Behind the scenes it&amp;rsquo;s a little bit more complicated than that, but that is the general idea. In the base framework there is a Game class from which your game, Game1 is being derived. When the application starts an instance of your game class will be created. It runs the Initialize and LoadContent methods and then begins to loop. Every loop two methods are called: Update() and Draw(). Update by default will be called 60 times every second. Draw will be called as many times as possible. In order to ensure that Update maintains a consistent frame rate, sometimes the Draw call will be skipped. In order to have smooth animations and other timings you want to follow the names of the methods, update any of your entities in Update, and draw them in Draw. Here&amp;rsquo;s what they look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;///
+&amp;lt;summary&amp;gt; /// Allows the game to run logic such as updating the world,
+/// checking for collisions, gathering input, and playing audio.
+/// &amp;lt;/summary&amp;gt;
+///Provides a snapshot of timing values.
+protected override void Update(GameTime gameTime)        {
+    // Allows the game to exit
+    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+        this.Exit();
+
+    // TODO: Add your update logic here
+    base.Update(gameTime);
+}
+
+///
+&amp;lt;summary&amp;gt; /// This is called when the game should draw itself.
+/// &amp;lt;/summary&amp;gt;
+///Provides a snapshot of timing values.
+protected override void Draw(GameTime gameTime)        {
+    GraphicsDevice.Clear(Color.CornflowerBlue);
+    // TODO: Add your drawing code here
+    base.Draw(gameTime);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, they&amp;rsquo;ve placed some TODOs there for you to start coding away. In the Update method they are testing the input from the gamepad for the Back button being pressed, and if it is then exit the application. This is because if you were to send this application over to the Xbox it&amp;rsquo;s much harder to exit an application if there isn&amp;rsquo;t a provided button. You&amp;rsquo;d have to use the exit to dashboard feature to break out. In windows, you can simply click the standard window close button.&lt;/p&gt;
+
+&lt;p&gt;In the Draw application they are telling the graphics card to clear the screen to a lovely CornflowerBlue color. So every time, at least 60 times a second the game is checking to see if any buttons are pressed on the gamepad, and as many times as possible it is clearing the screen to blue. In order for things to render onto the screen they have to be drawn over and over. If you run this application, you should see this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/first.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-232&#34; title=&#34;first&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/first-300x190.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;190&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;Victory!&lt;/h2&gt;
+Well, there&amp;rsquo;s your first game. It doesn&amp;rsquo;t do anything, and it isn&amp;rsquo;t very exciting (to most), but it is indeed a game nonetheless. From here you can start to add graphics and sounds and game logic until you have the game of your dreams.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for the first tutorial, in the next one we&amp;rsquo;ll cover rendering an image to the screen and making it move around!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Desert Code Camp 2011.2</title>
+      <link>http://bsparks.github.io/2011/11/05/Desert-Code-Camp-2011.2/</link>
+      <pubDate>Sat, 05 Nov 2011 22:54:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/05/Desert-Code-Camp-2011.2/</guid>
+      <description>&lt;p&gt;I gave a talk today at the &lt;a href=&#34;http://nov2011.desertcodecamp.com/&#34; target=&#34;_blank&#34;&gt;Desert Code Camp&lt;/a&gt; on &lt;a href=&#34;http://nov2011.desertcodecamp.com/session/398&#34; target=&#34;_blank&#34;&gt;XNA 4.0 Development Basics&lt;/a&gt;. It was my first time presenting at any sort of event. I think overall it went pretty well, tho I had a few issues. The talk was only an hour long, and I found myself being able to cover less than I had thought. I think that in the near future I will be posting some tutorials based around this, so stay tuned.&lt;/p&gt;
+
+&lt;p&gt;Thanks to all those who attended, as promised here are the &lt;a href=&#34;https://docs.google.com/open?id=0B6DOWf9Gtu5PZmI0NjAwNjItYmYwYS00NTk3LWFlNTQtNzdkYjBmNTg1NDgx&#34; target=&#34;_blank&#34;&gt;materials&lt;/a&gt; from the talk.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chainworlds - a fun gameplay option</title>
+      <link>http://bsparks.github.io/2011/08/30/Chainworlds---a-fun-gameplay-option/</link>
+      <pubDate>Tue, 30 Aug 2011 23:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/08/30/Chainworlds---a-fun-gameplay-option/</guid>
+      <description>&lt;p&gt;Lately I&amp;rsquo;ve been playing &lt;a href=&#34;http://www.minecraft.net&#34;&gt;Minecraft &lt;/a&gt;a lot. Not only is it a fun game, but I have been working on some voxel type things myself, and I think that it&amp;rsquo;s important to be knowledgeable about the main game. (how can I create a game like it if I&amp;rsquo;m not an avid player?) Normal single player tends to get boring however, especially in the vanilla game. There are plenty of interesting mods, but even with that you will eventually crave some sort of community interaction. Another thing that the community has come up with are special maps and game types that you can play. Most of them are driven via the forums and rules and scoring are based pretty much on the honor system.&lt;/p&gt;
+
+&lt;p&gt;One type in particular I have found to be very interesting, that&amp;rsquo;s the Chainworld or &amp;ldquo;Pass It On&amp;rdquo;.  Basically how it works is that one person starts playing the single player game. They play for an hour or two, and then zip up the save file and upload it to the forums.  When you are ready to participate, you create a post and mark it &amp;ldquo;TAKEN&amp;rdquo;. Then you download the file and play for a couple of hours. While you&amp;rsquo;re in the world you get to see what your predecessors have built and found. When you are done, zip up the save folder and re-upload it for the next person. Then you mark your forum post as &amp;ldquo;RETURNED&amp;rdquo; and make a few comments about what you did and any notes that you might have for the next person. The rules are usually made up by the person who starts the chain world, but they are usually very similar: Don&amp;rsquo;t cheat, Don&amp;rsquo;t destroy other people&amp;rsquo;s creations, basically, just don&amp;rsquo;t be an ass. Ultimately, you can always revert to the previous &amp;ldquo;good&amp;rdquo; player&amp;rsquo;s run in the event that a &amp;ldquo;bad&amp;rdquo; player gets ahold of it.&lt;/p&gt;
+
+&lt;p&gt;I think that for a sandbox world this type of gameplay should be integrated into the game itself. Much like choosing CTF or Deathmatch you would choose Chainworld. From there a server can manage a list of worlds. Instead of having to monitor a forum post however the game could checkout the file automatically and download it into your play space. An in game timer system could watch the clock for you while you play, and automatically upload and check the map back in.  There could even be other game manage features like instead of a time limit, give a life limit or something.&lt;/p&gt;
+
+&lt;p&gt;Of course in true multiplayer you could have a similar experience except that the players would potentially be there at the same time. I think there is still something of an added mystery with the single player version, and you don&amp;rsquo;t have to worry about lag.&lt;/p&gt;
+
+&lt;p&gt;Here are a couple that I&amp;rsquo;ve played on:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.minecraftforum.net/topic/586880-passiton-tayas-edition/&#34;&gt;http://www.minecraftforum.net/topic/586880-passiton-tayas-edition/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.minecraftforum.net/topic/580503-pass-pass-it-on-%E2%96%83%E2%96%85%E2%96%87-a-quiet-beach-%E2%96%87%E2%96%85%E2%96%83/&#34;&gt;http://www.minecraftforum.net/topic/580503-pass-pass-it-on-%E2%96%83%E2%96%85%E2%96%87-a-quiet-beach-%E2%96%87%E2%96%85%E2%96%83/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xbox Indie Game</title>
+      <link>http://bsparks.github.io/2011/05/09/Xbox-Indie-Game/</link>
+      <pubDate>Mon, 09 May 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/05/09/Xbox-Indie-Game/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working on this game for about a year now, and I haven&amp;rsquo;t posted about it before&amp;hellip; why? Dunno so here we go. The game is called For the Moon King. It&amp;rsquo;s a top down twin stick shooter. Here is a screenshot of the almost complete main menu. The idea is that the little elf travels around to the various spots on the map for each item in the menu that is in the lake.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/05/MenuShot1.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-200&#34; title=&#34;MenuShot1&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/05/MenuShot1-1024x598.jpg&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;350&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please like us on &lt;a title=&#34;For The Moon King!&#34; href=&#34;http://www.facebook.com/forthemoonking&#34; target=&#34;_blank&#34;&gt;Facebook&lt;/a&gt;! Don&amp;rsquo;t do it for me, do it For the Moon King :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jquery Conference</title>
+      <link>http://bsparks.github.io/2011/05/05/Jquery-Conference/</link>
+      <pubDate>Thu, 05 May 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/05/05/Jquery-Conference/</guid>
+      <description>&lt;p&gt;I went to the &lt;a title=&#34;jQuery&#34; href=&#34;http://jquery.com&#34; target=&#34;_blank&#34;&gt;jQuery&lt;/a&gt; &lt;a title=&#34;Conference&#34; href=&#34;http://events.jquery.org/2011/sf-bay-area/&#34; target=&#34;_blank&#34;&gt;Conference&lt;/a&gt; in Mountain View, CA a little while ago. It was a great experience, and I think that I learned quite a bit. When I got back, I gave a short presentation at work on some of the highlights. Here are my &lt;a title=&#34;slides&#34; href=&#34;http://superiorcode.com/jqcon&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; that I used for anyone who is interested. Thanks goes to &lt;a title=&#34;Adam J Sontag&#34; href=&#34;http://twitter.com/#!/ajpiano&#34; target=&#34;_blank&#34;&gt;@ajpiano&lt;/a&gt; for the base template.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Voxel Game</title>
+      <link>http://bsparks.github.io/2011/02/15/Voxel-Game/</link>
+      <pubDate>Tue, 15 Feb 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/02/15/Voxel-Game/</guid>
+      <description>&lt;p&gt;Well, I have been interested in Voxels and Volumetric rendering for quite some time. I have also been following the game &lt;a title=&#34;Minecraft&#34; href=&#34;http://minecraft.net&#34; target=&#34;_blank&#34;&gt;Minecraft&lt;/a&gt; for a very long time. Well, I decided to start working on my own block engine finally. It took quite a bit of research but I finally understand how it&amp;rsquo;s done (well most of it). So now a couple of friends of mine and I are working on creating a version for the Xbox 360.
+&lt;p style=&#34;text-align: center;&#34;&gt;Here are some screenshots:
+&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/colors.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-184&#34; title=&#34;Colored Lights&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/colors-1024x577.jpg&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;338&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/sweet.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-183&#34; title=&#34;Block Game&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/sweet.jpg&#34; alt=&#34;&#34; width=&#34;854&#34; height=&#34;482&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XNA Color Formatted Text</title>
+      <link>http://bsparks.github.io/2010/05/16/XNA-Color-Formatted-Text/</link>
+      <pubDate>Sun, 16 May 2010 09:17:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2010/05/16/XNA-Color-Formatted-Text/</guid>
+      <description>&lt;p&gt;I recently have been working on a simple &amp;ldquo;old school&amp;rdquo; rpg game for XNA. One of the features that I want to have is scrolling text for combat and other messages that are given to the player. What I am talking about might look like this:
+&lt;blockquote&gt;
+&lt;h3&gt;You swing at the &lt;strong&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;goblin&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;and hit for &lt;strong&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;8&lt;/span&gt;&lt;/strong&gt; damage.&lt;/h3&gt;
+&lt;/blockquote&gt;
+Well, there isn&amp;rsquo;t any built in method to draw text to the screen and have the colors change in one string. Pretty much the only way (or at least the easiest way) to accomplish this is to use multiple DrawString calls on the SpriteBatch. When thinking about that I didn&amp;rsquo;t think it would be a terribly difficult task, but I decided to do a google search for any already made solutions. I found an article on the &lt;a href=&#34;http://www.xnawiki.com&#34;&gt;XNAWiki&lt;/a&gt; called &lt;a href=&#34;http://www.xnawiki.com/index.php?title=Inline_Color_Code_Processing&#34;&gt;Inline Color Code Processing&lt;/a&gt; that claims to (I haven&amp;rsquo;t tried it) do the trick. When I examined it though, I found that I couldn&amp;rsquo;t be happy with their implementation. They chose to define a set number of colors and then reference them in the string using an integer index. That to me seemed very limited, and even though my project is simple, I&amp;rsquo;d rather not hard code in a bunch of colors. What I wanted is to be able to type in a color in the string and have it parse out to the color I wanted, much like HTML or BBCODE would work. The best way I could think of to do this is using HEX values, just like HTML or CSS would work. Unfortunately, getting a color from HEX is another thing that isn&amp;rsquo;t built into XNA. So, back to google and I found &lt;a title=&#34;The Dead Pixel Society&#34; href=&#34;http://www.thedeadpixelsociety.com/2010/04/hex-colors/&#34; target=&#34;_blank&#34;&gt;this blog&lt;/a&gt; that had the extensions I needed already worked out! Ok, fantastic, now the final piece, I just needed to write up a function to display the text. It actually ended up being pretty easy and perhaps it&amp;rsquo;s not the best implementation, but it works perfectly. To use it, you setup your string like so: &amp;ldquo;You attack the [color:#FFFF0000]goblin[/color] and hit for [color:#FF00FF00]8[/color] damage.&amp;rdquo; Of course, just as the extension is converting the HEX to actual colors, you can convert the colors to HEX when you are making the string and use some of the built in colors like Color.Red.ToHex(true).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;public static void DrawColorFormattedText(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, string text)
+{
+    Color defaultColor = Color.White;
+
+    // only bother if we have color commands involved
+    if (text.Contains(&amp;quot;[color:&amp;quot;))
+    {
+        // how far in x to offset from position
+        int currentOffset = 0;
+
+        // example:
+        // string.Format(&amp;quot;You attempt to hit the [color:#FFFF0000]{0}[/color] but [color:{1}]MISS[/color]!&amp;quot;,
+        // currentMonster.Name, Color.Red.ToHex(true));
+        string[] splits = text.Split(new string[] { &amp;quot;[color:&amp;quot; }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var str in splits)
+        {
+            // if this section starts with a color
+            if (str.StartsWith(&amp;quot;#&amp;quot;))
+            {
+                // #AARRGGBB
+                // #FFFFFFFFF
+                // #123456789
+                string color = str.Substring(0, 9);
+
+                // any subsequent msgs after the [/color] tag are defaultColor
+                string[] msgs = str.Substring(10).Split(new string[] { &amp;quot;[/color]&amp;quot; }, StringSplitOptions.RemoveEmptyEntries);
+
+                // always draw [0] there should be at least one
+                spriteBatch.DrawString(font, msgs[0], position + new Vector2(currentOffset, 0), color.ToColor());
+                currentOffset += (int)font.MeasureString(msgs[0]).X;
+
+                // there should only ever be one other string or none
+                if(msgs.Length == 2)
+                {
+                    spriteBatch.DrawString(font, msgs[1], position + new Vector2(currentOffset, 0), defaultColor);
+                    currentOffset += (int)font.MeasureString(msgs[1]).X;
+                }
+            }
+            else
+            {
+                spriteBatch.DrawString(font, str, position + new Vector2(currentOffset, 0), defaultColor);
+                currentOffset += (int)font.MeasureString(str).X;
+            }
+        }
+    }
+    else
+    {
+        // just draw the string as ordered
+        spriteBatch.DrawString(font, text, position, defaultColor);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here it is, pics or it didn&amp;rsquo;t happen :)&lt;/p&gt;
+
+&lt;p&gt;[caption id=&amp;ldquo;attachment_147&amp;rdquo; align=&amp;ldquo;alignleft&amp;rdquo; width=&amp;ldquo;384&amp;rdquo; caption=&amp;ldquo;Colored Rpg Text&amp;rdquo;]&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg&#34;&gt;&lt;img class=&#34;size-full wp-image-147&#34; title=&#34;coloredTextEx&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg&#34; alt=&#34;&#34; width=&#34;384&#34; height=&#34;191&#34; /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>dotNet 4 New Features</title>
+      <link>http://bsparks.github.io/2010/05/16/dotNet-4-New-Features/</link>
+      <pubDate>Sun, 16 May 2010 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2010/05/16/dotNet-4-New-Features/</guid>
+      <description>&lt;p&gt;.Net 4 has been out for a couple of weeks now and I have started to delve into the new features. Now we are up to C# version 4 as well, and one of the new features that I find really exciting is Optional and Named Parameters. Being able to use optional parameters in functions is something that is built into C++ and until now has been completely missing from C#. In the past, you basically had to override a function several times in order to give the caller more options for leaving parameters out. I am surprised really that it took this long to get them in C#, but I&amp;rsquo;m glad they are here now! Since overriding functions was the only way to do it in the past, I have to wonder if behind the scenes that is all that Microsoft is doing, generating overrides for functions, perhaps someday I&amp;rsquo;ll look into that. For now let me explain briefly how these work in C# 4.0.&lt;/p&gt;
+
+&lt;p&gt;Much like in C++ optional parameters must come after required parameters in the parameter list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;void PrintCustomer(string name, string state, string salutation=&amp;quot;n/a&amp;quot;, string city=&amp;quot;&amp;quot;, int sales=100)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, it&amp;rsquo;s pretty simple. Just create the parameter as usual, but add the default value to it. So now you can call the function with ONLY the name and state parameters if you want to.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;PrintCustomer(&amp;quot;Bob Smith&amp;quot;, &amp;quot;AZ&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty cool! Previously you have had to have 4 different overrides of that function in order to accommodate all 3 of those optional parameter configurations. So just like in C++ you can call the function with or without any of the optional parameters, but in C++ you would have to go through each of them in order, you wouldn&amp;rsquo;t for example be able to define city without defining a value for salutation. This is where Named Parameters come into play. With named parameters you can specify the parameter that you want, like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;PrintCustomer(&amp;quot;Bob Smith&amp;quot;, &amp;quot;AZ&amp;quot;, city: &amp;quot;Phoenix&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Awesome! Now we have bypassed the need to have a value for salutation! Also it is good to note that you can use named parameters even for the required parameters. That way you can provide parameters to functions in any order that you want, and provide even greater readability in code. Perhaps you have 2 similarly named parameters like state and salesState, with named parameters it would be easy to understand which is which from the call of the function (though it wouldn&amp;rsquo;t be too often you&amp;rsquo;d be using string literals in your function calls).&lt;/p&gt;
+
+&lt;p&gt;Here is a complete VS2010 console application demonstrating this new functionality:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Net4Tests
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            PrintCustomer(&amp;quot;Tech Co&amp;quot;, &amp;quot;AZ&amp;quot;);
+            PrintCustomer(&amp;quot;ABC Engineering&amp;quot;, &amp;quot;CA&amp;quot;, &amp;quot;San Diego&amp;quot;);
+            PrintCustomer(&amp;quot;SwizzleSoft&amp;quot;, &amp;quot;AZ&amp;quot;, zip: &amp;quot;12345&amp;quot;);
+            PrintCustomer(&amp;quot;Bob Smith&amp;quot;, city: &amp;quot;Phoenix&amp;quot;, state: &amp;quot;AZ&amp;quot;);
+
+            Console.ReadLine();
+        }
+
+        static void PrintCustomer(string name, string state, string city = &amp;quot;&amp;quot;, string zip = &amp;quot;&amp;quot;)
+        {
+            Console.WriteLine(&amp;quot;{0}\t{1},{2} {3}&amp;quot;, name, city, state, zip);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

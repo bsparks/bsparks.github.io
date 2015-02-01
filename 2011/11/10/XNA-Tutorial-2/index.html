@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>XNA Tutorial 2 &middot; Ben Sparks</title>
+
+  
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.png" rel="icon">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="superior code &middot; Ben Sparks" />
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body class="theme-base-pp">
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
+      <h1>Ben Sparks</h1>
+      
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+
+    </ul>
+
+      <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      
+      
+      <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      
+
+    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+
+<div class="content container">
+  <div class="post">
+    <h1>XNA Tutorial 2</h1>
+    <span class="post-date">Nov 10, 2011 &middot; 8 minute read</span>
+
+    <div class="tags-list">
+        Tags:
+        
+        <span class="label label-info">
+            <a href="/tags/game-development">game development</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/xna">xna</a>
+        </span>
+        
+        <span class="label label-info">
+            <a href="/tags/tutorials">tutorials</a>
+        </span>
+        
+    </div>
+
+    <p>Welcome to the second tutorial in a series on XNA Game Development. In the <a title="XNA Tutorial 1" href="http://superiorcode.com/blog/?p=216">first tutorial</a> we learned how to get all of the tools needed and create the basic solution, as well as a little about game loops. Now we&rsquo;re going to do something much more interesting than just displaying a blue screen. We&rsquo;re going to display an image on the screen, and we&rsquo;ll make it move around.</p>
+
+<p>So let&rsquo;s build off of the previous solution, or create a new one if you don&rsquo;t have that.
+<h2>Loading an Image</h2>
+<img src="/images/cat.png" alt="" />
+</p>
+
+<p>Ok, so first off we need an image. For the purposes of this tutorial we&rsquo;ll just grab any image from a quick search on Google. I have found a lovely image of a cartoon cat. That should do for now. Take your image and drag it over the <strong>Content</strong>project in your solution. It should appear there as part of that project now. In XNA images are called Textures. There are both 2D and 3D textures, this is a 2D texture. In order to use the image in a game we need a reference to a Texture2D object. In the code the Texture2D object keeps track of all of the pixels in an image file. In order to get the data from the file into the object, we need to open and load the file. The Game class that we have derived from comes with a content manager built in. In the LoadContent method is where we will want to get the information from the image file into our texture object.</p>
+
+<pre><code class="language-csharp">GraphicsDeviceManager graphics;
+SpriteBatch spriteBatch;
+Texture2D catTex;
+
+public Game1()
+{
+    graphics = new GraphicsDeviceManager(this);
+    Content.RootDirectory = &quot;Content&quot;;
+}
+</code></pre>
+
+<p>For now we have just created the Texture2D catTex as a private member of our Game class. Next in the LoadContent() method we will load the data.</p>
+
+<pre><code class="language-csharp">&lt;summary&gt;
+/// LoadContent will be called once per game and is the place to load
+/// all of your content.
+///
+&lt;/summary&gt;
+protected override void LoadContent()
+{
+    // Create a new SpriteBatch, which can be used to draw textures.
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+
+    // TODO: use this.Content to load your game content here
+    catTex = Content.Load(&quot;cat&quot;);
+}
+</code></pre>
+
+<p>Notice that we do not need to provide the file extension. Because there is only one file in the Content folder named &ldquo;cat&rdquo; XNA just pick that one. If we had cat.png and cat.jpg both in there, then we would need to specify. We can also create folders inside the content project in order to better separate the various types of content out. For now we can keep things simple, but later we will want to do this. Once a project gets bigger managing your resources will become more important.
+<h2>Rendering the Image</h2>
+Ok, now that we have loaded the cat image into memory, lets display it on the screen. Everything that  we want to show on the screen goes in the Draw() method.</p>
+
+<p>[code lang=&ldquo;csharp&rdquo;]
+///
+<summary> /// This is called when the game should draw itself.
+ /// </summary>
+        ///Provides a snapshot of timing values.
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);</p>
+
+<pre><code>        // TODO: Add your drawing code here
+        spriteBatch.Begin();
+        spriteBatch.Draw(catTex, Vector2.Zero, Color.White);
+        spriteBatch.End();
+
+        base.Draw(gameTime);
+    }
+</code></pre>
+
+<p>[/code]</p>
+
+<p>If you noticed before during the LoadContent() method that we instantiated a new instance of the spriteBatch and wondered what that was, now is the time to find out. The SpriteBatch is a special built in shader for XNA optimized for rendering textures to the screen. In game development when we render textures to the screen (and make them move about) we call them Sprites. A shader is a special program that gets executed on the graphics card telling it how to render. All modern graphics programming is done through the use of shaders. In the code above first we called spriteBatch.Begin(). Rather than drawing each instruction one at a time, you can batch together all of them into one call. We tell the spriteBatch to start paying attention, all of the following commands will be for the graphics card. When we are done, we tell it spriteBatch.End() so that it knows we have finished and can go ahead and send the instructions to the graphics card.</p>
+
+<p>The Draw() method has several overloads, in this one the first thing it expects is a reference to a Texture2D object; i.e. which image to draw. The second parameter is the position on the screen that we want to draw the image. It is expecting a Vector2. A Vector2 represents a 2 dimensional vector, x and y coordinates. Beyond simply storing the x &amp; y, you can perform all sorts of vector mathematics on them. Vectors are extremely important and something that you will need to use a lot. For now just know that I put in 0,0 for the coordinates, which is the upper left corner of the screen. The third and final parameter of this overload is a Color. The color is used to tint the image. Telling the draw method to use White will render the image as it is.  It is like shining a light on the image in the real world, white light would reflect off of the surface back to us and we would see it as it was. If we had a red flashlight, the color would blend in with the colors of the image and only tint it red. Tinting can be a very useful technique, but for now we&rsquo;ll just render it as is.</p>
+
+<p>Now that we have that code, go ahead and launch the program in debug mode and you should see your image rendered onto the screen!</p>
+
+<p><a href="http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat.jpg"><img class="aligncenter size-medium wp-image-249" title="xna_tut2_cat" src="http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat-300x190.jpg" alt="" width="300" height="190" /></a>
+<h2>Moving it around</h2>
+Ok, while that is exciting, I think that we&rsquo;ll want to do something a little more interesting. Games do much more than just render images to the screen. Let&rsquo;s make this cat move around! In order to do that we need to update the position that we draw it on the screen. First we&rsquo;ll add a Vector2 to our game class so that we can keep track of the position at a higher scope from the Draw method. We&rsquo;ll have it default to [0,0] still just like our old one, and then down in the Draw call we&rsquo;ll replace Vector2.Zero with our new position value.</p>
+
+<p>[code lang=&ldquo;csharp&rdquo;]
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Texture2D catTex;
+        Vector2 catPos = Vector2.Zero;</p>
+
+<pre><code>    public Game1()
+</code></pre>
+
+<p>&hellip;</p>
+
+<p>spriteBatch.Draw(catTex, catPos, Color.White);
+[/code]</p>
+
+<p>The Update() method is where we want to perform any of our calculations that are not directly about drawing things on the screen. You&rsquo;ll notice that there is already a little bit of code in that method, it is testing the gamepad to see if the Back button has been pressed. When the back button is pressed, the game exits. XNA has built in classes that can be used to check various types of input devices, the keyboard, gamepad, mouse, etc. Just like they are checking the GamePadState, there is also the KeyboardState.</p>
+
+<p>[code lang=&ldquo;csharp&rdquo;]
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime gameTime)
+        {
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();</p>
+
+<pre><code>        // TODO: Add your update logic here
+        KeyboardState kbstate = Keyboard.GetState(PlayerIndex.One);
+        GamePadState gbstate = GamePad.GetState(PlayerIndex.One);
+
+        if (kbstate.IsKeyDown(Keys.Left))
+        {
+            catPos.X -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Right))
+        {
+            catPos.X += 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Up))
+        {
+            catPos.Y -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Down))
+        {
+            catPos.Y += 1;
+        }
+
+        catPos = Vector2.Add(catPos, gbstate.ThumbSticks.Left);
+
+        base.Update(gameTime);
+    }
+</code></pre>
+
+<p>[/code]</p>
+
+<p>Since we want to eventually use this on the Xbox we&rsquo;ll get both the keyboard state and the gamepad state. By default Update() is called 60 times every second. Each time it is called we will check on the status of the input devices. For the keyboard we&rsquo;ll use the arrow keys. Left and right modify the X-Axis and Up and Down modify the Y-Axis. For the gamepad we will use the Left Analog stick. From the tests there you can see that we are modifying our cat&rsquo;s pos (paws?). Since Update() is called before Draw() it will change where the graphics card is told to render the image to the screen. Since every frame we are moving it slightly it will give the illusion of floating across the screen. In reality we&rsquo;re just drawing a still image over and over in a slightly different spot. It&rsquo;s also important to note that in screen coordinates the top of the screen is Y Zero and Y moves positively towards the bottom of the screen. So in order to move &ldquo;up&rdquo; we subtract from Y. On the X-Axis the left side of the screen is X Zero and X moves positively to the right. It&rsquo;s perfectly fine and possible to set our image to coordinates that are outside of the screen. If you run the program now you will see that using the arrow keys we can make the cat go off the screen or in any direction that we want.
+<h2>Next Time&hellip;</h2>
+So now we&rsquo;ve taken our first steps into something that is much closer to a game than just clearing the screen blue, but from here the sky is the limit! In the next tutorial we&rsquo;ll take a look at rendering multiple sprites to the screen, utilizing tint, drawing text, basic collision detection, and some &ldquo;AI&rdquo;. For this tutorial you can grab the all the files <a href="http://superiorcode.com/download/xna_tuts/XnaTutorial2.rar">HERE</a>.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+</div>
+
+<script src="http://bsparks.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

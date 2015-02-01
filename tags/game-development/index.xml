@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Game-Development on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/game-development/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Thu, 10 Nov 2011 08:51:23 MST</updated>
+    
+    <item>
+      <title>XNA Tutorial 2</title>
+      <link>http://bsparks.github.io/2011/11/10/XNA-Tutorial-2/</link>
+      <pubDate>Thu, 10 Nov 2011 08:51:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/10/XNA-Tutorial-2/</guid>
+      <description>&lt;p&gt;Welcome to the second tutorial in a series on XNA Game Development. In the &lt;a title=&#34;XNA Tutorial 1&#34; href=&#34;http://superiorcode.com/blog/?p=216&#34;&gt;first tutorial&lt;/a&gt; we learned how to get all of the tools needed and create the basic solution, as well as a little about game loops. Now we&amp;rsquo;re going to do something much more interesting than just displaying a blue screen. We&amp;rsquo;re going to display an image on the screen, and we&amp;rsquo;ll make it move around.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s build off of the previous solution, or create a new one if you don&amp;rsquo;t have that.
+&lt;h2&gt;Loading an Image&lt;/h2&gt;
+&lt;img src=&#34;/images/cat.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ok, so first off we need an image. For the purposes of this tutorial we&amp;rsquo;ll just grab any image from a quick search on Google. I have found a lovely image of a cartoon cat. That should do for now. Take your image and drag it over the &lt;strong&gt;Content&lt;/strong&gt;project in your solution. It should appear there as part of that project now. In XNA images are called Textures. There are both 2D and 3D textures, this is a 2D texture. In order to use the image in a game we need a reference to a Texture2D object. In the code the Texture2D object keeps track of all of the pixels in an image file. In order to get the data from the file into the object, we need to open and load the file. The Game class that we have derived from comes with a content manager built in. In the LoadContent method is where we will want to get the information from the image file into our texture object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;GraphicsDeviceManager graphics;
+SpriteBatch spriteBatch;
+Texture2D catTex;
+
+public Game1()
+{
+    graphics = new GraphicsDeviceManager(this);
+    Content.RootDirectory = &amp;quot;Content&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For now we have just created the Texture2D catTex as a private member of our Game class. Next in the LoadContent() method we will load the data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;&amp;lt;summary&amp;gt;
+/// LoadContent will be called once per game and is the place to load
+/// all of your content.
+///
+&amp;lt;/summary&amp;gt;
+protected override void LoadContent()
+{
+    // Create a new SpriteBatch, which can be used to draw textures.
+    spriteBatch = new SpriteBatch(GraphicsDevice);
+
+    // TODO: use this.Content to load your game content here
+    catTex = Content.Load(&amp;quot;cat&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that we do not need to provide the file extension. Because there is only one file in the Content folder named &amp;ldquo;cat&amp;rdquo; XNA just pick that one. If we had cat.png and cat.jpg both in there, then we would need to specify. We can also create folders inside the content project in order to better separate the various types of content out. For now we can keep things simple, but later we will want to do this. Once a project gets bigger managing your resources will become more important.
+&lt;h2&gt;Rendering the Image&lt;/h2&gt;
+Ok, now that we have loaded the cat image into memory, lets display it on the screen. Everything that  we want to show on the screen goes in the Draw() method.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+///
+&lt;summary&gt; /// This is called when the game should draw itself.
+ /// &lt;/summary&gt;
+        ///Provides a snapshot of timing values.
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        // TODO: Add your drawing code here
+        spriteBatch.Begin();
+        spriteBatch.Draw(catTex, Vector2.Zero, Color.White);
+        spriteBatch.End();
+
+        base.Draw(gameTime);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;If you noticed before during the LoadContent() method that we instantiated a new instance of the spriteBatch and wondered what that was, now is the time to find out. The SpriteBatch is a special built in shader for XNA optimized for rendering textures to the screen. In game development when we render textures to the screen (and make them move about) we call them Sprites. A shader is a special program that gets executed on the graphics card telling it how to render. All modern graphics programming is done through the use of shaders. In the code above first we called spriteBatch.Begin(). Rather than drawing each instruction one at a time, you can batch together all of them into one call. We tell the spriteBatch to start paying attention, all of the following commands will be for the graphics card. When we are done, we tell it spriteBatch.End() so that it knows we have finished and can go ahead and send the instructions to the graphics card.&lt;/p&gt;
+
+&lt;p&gt;The Draw() method has several overloads, in this one the first thing it expects is a reference to a Texture2D object; i.e. which image to draw. The second parameter is the position on the screen that we want to draw the image. It is expecting a Vector2. A Vector2 represents a 2 dimensional vector, x and y coordinates. Beyond simply storing the x &amp;amp; y, you can perform all sorts of vector mathematics on them. Vectors are extremely important and something that you will need to use a lot. For now just know that I put in 0,0 for the coordinates, which is the upper left corner of the screen. The third and final parameter of this overload is a Color. The color is used to tint the image. Telling the draw method to use White will render the image as it is.  It is like shining a light on the image in the real world, white light would reflect off of the surface back to us and we would see it as it was. If we had a red flashlight, the color would blend in with the colors of the image and only tint it red. Tinting can be a very useful technique, but for now we&amp;rsquo;ll just render it as is.&lt;/p&gt;
+
+&lt;p&gt;Now that we have that code, go ahead and launch the program in debug mode and you should see your image rendered onto the screen!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-249&#34; title=&#34;xna_tut2_cat&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/xna_tut2_cat-300x190.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;190&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;Moving it around&lt;/h2&gt;
+Ok, while that is exciting, I think that we&amp;rsquo;ll want to do something a little more interesting. Games do much more than just render images to the screen. Let&amp;rsquo;s make this cat move around! In order to do that we need to update the position that we draw it on the screen. First we&amp;rsquo;ll add a Vector2 to our game class so that we can keep track of the position at a higher scope from the Draw method. We&amp;rsquo;ll have it default to [0,0] still just like our old one, and then down in the Draw call we&amp;rsquo;ll replace Vector2.Zero with our new position value.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Texture2D catTex;
+        Vector2 catPos = Vector2.Zero;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    public Game1()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;spriteBatch.Draw(catTex, catPos, Color.White);
+[/code]&lt;/p&gt;
+
+&lt;p&gt;The Update() method is where we want to perform any of our calculations that are not directly about drawing things on the screen. You&amp;rsquo;ll notice that there is already a little bit of code in that method, it is testing the gamepad to see if the Back button has been pressed. When the back button is pressed, the game exits. XNA has built in classes that can be used to check various types of input devices, the keyboard, gamepad, mouse, etc. Just like they are checking the GamePadState, there is also the KeyboardState.&lt;/p&gt;
+
+&lt;p&gt;[code lang=&amp;ldquo;csharp&amp;rdquo;]
+        /// &lt;summary&gt;
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&#34;gameTime&#34;&gt;Provides a snapshot of timing values.&lt;/param&gt;
+        protected override void Update(GameTime gameTime)
+        {
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        // TODO: Add your update logic here
+        KeyboardState kbstate = Keyboard.GetState(PlayerIndex.One);
+        GamePadState gbstate = GamePad.GetState(PlayerIndex.One);
+
+        if (kbstate.IsKeyDown(Keys.Left))
+        {
+            catPos.X -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Right))
+        {
+            catPos.X += 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Up))
+        {
+            catPos.Y -= 1;
+        }
+        if (kbstate.IsKeyDown(Keys.Down))
+        {
+            catPos.Y += 1;
+        }
+
+        catPos = Vector2.Add(catPos, gbstate.ThumbSticks.Left);
+
+        base.Update(gameTime);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;Since we want to eventually use this on the Xbox we&amp;rsquo;ll get both the keyboard state and the gamepad state. By default Update() is called 60 times every second. Each time it is called we will check on the status of the input devices. For the keyboard we&amp;rsquo;ll use the arrow keys. Left and right modify the X-Axis and Up and Down modify the Y-Axis. For the gamepad we will use the Left Analog stick. From the tests there you can see that we are modifying our cat&amp;rsquo;s pos (paws?). Since Update() is called before Draw() it will change where the graphics card is told to render the image to the screen. Since every frame we are moving it slightly it will give the illusion of floating across the screen. In reality we&amp;rsquo;re just drawing a still image over and over in a slightly different spot. It&amp;rsquo;s also important to note that in screen coordinates the top of the screen is Y Zero and Y moves positively towards the bottom of the screen. So in order to move &amp;ldquo;up&amp;rdquo; we subtract from Y. On the X-Axis the left side of the screen is X Zero and X moves positively to the right. It&amp;rsquo;s perfectly fine and possible to set our image to coordinates that are outside of the screen. If you run the program now you will see that using the arrow keys we can make the cat go off the screen or in any direction that we want.
+&lt;h2&gt;Next Time&amp;hellip;&lt;/h2&gt;
+So now we&amp;rsquo;ve taken our first steps into something that is much closer to a game than just clearing the screen blue, but from here the sky is the limit! In the next tutorial we&amp;rsquo;ll take a look at rendering multiple sprites to the screen, utilizing tint, drawing text, basic collision detection, and some &amp;ldquo;AI&amp;rdquo;. For this tutorial you can grab the all the files &lt;a href=&#34;http://superiorcode.com/download/xna_tuts/XnaTutorial2.rar&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XNA Tutorial 1</title>
+      <link>http://bsparks.github.io/2011/11/07/XNA-Tutorial-1/</link>
+      <pubDate>Mon, 07 Nov 2011 16:15:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/07/XNA-Tutorial-1/</guid>
+      <description>
+
+&lt;p&gt;Following along with the theme from Desert Code Camp, I have decided to start writing a series of XNA game development tutorials. This will be the first one, and will start at the very beginning.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;What is XNA?&lt;/h2&gt;
+
+&lt;p&gt;XNA is a game development framework created by Microsoft that has access to various game APIs through .NET. It can be used to create games for the Xbox 360, Windows Phone 7, and Windows PC. The framework provides classes and utilities to access various areas of games such as 2D and 3D graphics, sound, networking, and live services. In order to develop for the Xbox 360 and / or distribute games created on Microsoft&amp;rsquo;s App Hub, a $99/yr developer fee is required.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Here&amp;rsquo;s what you need to get started:&lt;/h2&gt;
+
+&lt;p&gt;In order to develop using XNA you need to use Visual Studio 2010. Currently you can choose between C# and VB. The Express editions (free) will work fine for this. So first thing, &lt;a href=&#34;http://www.microsoft.com/visualstudio/en-us/products/2010-editions/express&#34; target=&#34;_blank&#34;&gt;download&lt;/a&gt; and install it. Personally, I prefer C# so (at least initially) all of my tutorials will be in that context. I doubt the translation between is terribly complex. Once that is installed you will then need to install the XNA Game Studio, which at the time of this writing is at version 4.0 Refresh. Here are the links, I&amp;rsquo;ve included the runtime distribution as well, for development, you need the first one.&lt;/p&gt;
+
+&lt;p&gt;XNA Game Studio 4.0 Refresh&lt;/p&gt;
+
+&lt;p&gt;Download page - &lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&#34;&gt;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27599&lt;/a&gt;&lt;/a&gt;
+Direct download link - &lt;a href=&#34;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&#34;&gt;http://download.microsoft.com/download/E/C/6/EC68782D-872A-4D58-A8D3-87881995CDD4/XNAGS40_setup.exe&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;XNA Framework Redistributable 4.0 Refresh&lt;/p&gt;
+
+&lt;p&gt;Download page - &lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&#34;&gt;http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;amp;id=27598&lt;/a&gt;&lt;/a&gt;
+Direct download link - &lt;a href=&#34;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&#34;&gt;http://download.microsoft.com/download/5/3/A/53A804C8-EC78-43CD-A0F0-2FB4D45603D3/xnafx40_redist.msi&lt;/a&gt;&lt;/a&gt;
+&lt;h2&gt;Creating your first project&lt;/h2&gt;
+Now that you&amp;rsquo;ve got the tools installed, it&amp;rsquo;s time to fire up Visual Studio and create a new project.
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/VSP.jpg&#34;&gt;&lt;img class=&#34;size-medium wp-image-221 aligncenter&#34; title=&#34;VSP&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/VSP-300x207.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;207&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;You will notice that there are a few different project templates to choose from, for now go ahead and pick Windows Game 4.0. Even if you want to develop for Xbox 360 it&amp;rsquo;s best to start with this type of project. You can develop most of the time in Windows, and then easily switch over to the Xbox when needed. Visual Studio will create for you a somewhat bare bones solution so that you can get started!&lt;/p&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;There are two types of projects that will be created, the first is the main game itself, and the second is a Content project. In the content project is where all of your games assets will go. Anything like images, sounds, 3d models, game levels, etc. are considered content and will go in there. First let&amp;rsquo;s take a look at the code.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 style=&#34;text-align: left;&#34;&gt;The Code&lt;/h2&gt;
+&lt;p style=&#34;text-align: left;&#34;&gt;You&amp;rsquo;ll notice at the top that by default several libraries have been included:&lt;/p&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These are all of the major XNA libraries. Each one covering a major aspect of the game application. For the most part they should be self explainatory, but we&amp;rsquo;ll go into them in more detail later. Next you&amp;rsquo;ll see the basic layout of a game. If you are new to any kind of game development the concept of a game loop might also be new. Normally a program is executed from top to bottom, and then when it goes past the final instructions it exits. For a game, obviously this isn&amp;rsquo;t desired behavior. So at some point we need to make sure that the program will keep running until the player decides to quit. In order to achieve this, you setup an infinite loop. At a basic level, it&amp;rsquo;s something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  while(true) {
+    // play!
+    if(done) {
+        break;
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Behind the scenes it&amp;rsquo;s a little bit more complicated than that, but that is the general idea. In the base framework there is a Game class from which your game, Game1 is being derived. When the application starts an instance of your game class will be created. It runs the Initialize and LoadContent methods and then begins to loop. Every loop two methods are called: Update() and Draw(). Update by default will be called 60 times every second. Draw will be called as many times as possible. In order to ensure that Update maintains a consistent frame rate, sometimes the Draw call will be skipped. In order to have smooth animations and other timings you want to follow the names of the methods, update any of your entities in Update, and draw them in Draw. Here&amp;rsquo;s what they look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;///
+&amp;lt;summary&amp;gt; /// Allows the game to run logic such as updating the world,
+/// checking for collisions, gathering input, and playing audio.
+/// &amp;lt;/summary&amp;gt;
+///Provides a snapshot of timing values.
+protected override void Update(GameTime gameTime)        {
+    // Allows the game to exit
+    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+        this.Exit();
+
+    // TODO: Add your update logic here
+    base.Update(gameTime);
+}
+
+///
+&amp;lt;summary&amp;gt; /// This is called when the game should draw itself.
+/// &amp;lt;/summary&amp;gt;
+///Provides a snapshot of timing values.
+protected override void Draw(GameTime gameTime)        {
+    GraphicsDevice.Clear(Color.CornflowerBlue);
+    // TODO: Add your drawing code here
+    base.Draw(gameTime);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, they&amp;rsquo;ve placed some TODOs there for you to start coding away. In the Update method they are testing the input from the gamepad for the Back button being pressed, and if it is then exit the application. This is because if you were to send this application over to the Xbox it&amp;rsquo;s much harder to exit an application if there isn&amp;rsquo;t a provided button. You&amp;rsquo;d have to use the exit to dashboard feature to break out. In windows, you can simply click the standard window close button.&lt;/p&gt;
+
+&lt;p&gt;In the Draw application they are telling the graphics card to clear the screen to a lovely CornflowerBlue color. So every time, at least 60 times a second the game is checking to see if any buttons are pressed on the gamepad, and as many times as possible it is clearing the screen to blue. In order for things to render onto the screen they have to be drawn over and over. If you run this application, you should see this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/first.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-232&#34; title=&#34;first&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/11/first-300x190.jpg&#34; alt=&#34;&#34; width=&#34;300&#34; height=&#34;190&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;Victory!&lt;/h2&gt;
+Well, there&amp;rsquo;s your first game. It doesn&amp;rsquo;t do anything, and it isn&amp;rsquo;t very exciting (to most), but it is indeed a game nonetheless. From here you can start to add graphics and sounds and game logic until you have the game of your dreams.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for the first tutorial, in the next one we&amp;rsquo;ll cover rendering an image to the screen and making it move around!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xbox Indie Game</title>
+      <link>http://bsparks.github.io/2011/05/09/Xbox-Indie-Game/</link>
+      <pubDate>Mon, 09 May 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/05/09/Xbox-Indie-Game/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working on this game for about a year now, and I haven&amp;rsquo;t posted about it before&amp;hellip; why? Dunno so here we go. The game is called For the Moon King. It&amp;rsquo;s a top down twin stick shooter. Here is a screenshot of the almost complete main menu. The idea is that the little elf travels around to the various spots on the map for each item in the menu that is in the lake.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/05/MenuShot1.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-200&#34; title=&#34;MenuShot1&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/05/MenuShot1-1024x598.jpg&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;350&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please like us on &lt;a title=&#34;For The Moon King!&#34; href=&#34;http://www.facebook.com/forthemoonking&#34; target=&#34;_blank&#34;&gt;Facebook&lt;/a&gt;! Don&amp;rsquo;t do it for me, do it For the Moon King :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XNA Color Formatted Text</title>
+      <link>http://bsparks.github.io/2010/05/16/XNA-Color-Formatted-Text/</link>
+      <pubDate>Sun, 16 May 2010 09:17:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2010/05/16/XNA-Color-Formatted-Text/</guid>
+      <description>&lt;p&gt;I recently have been working on a simple &amp;ldquo;old school&amp;rdquo; rpg game for XNA. One of the features that I want to have is scrolling text for combat and other messages that are given to the player. What I am talking about might look like this:
+&lt;blockquote&gt;
+&lt;h3&gt;You swing at the &lt;strong&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt;goblin&lt;/span&gt;&lt;/strong&gt;&lt;span style=&#34;color: #ff0000;&#34;&gt; &lt;/span&gt;and hit for &lt;strong&gt;&lt;span style=&#34;color: #00ccff;&#34;&gt;8&lt;/span&gt;&lt;/strong&gt; damage.&lt;/h3&gt;
+&lt;/blockquote&gt;
+Well, there isn&amp;rsquo;t any built in method to draw text to the screen and have the colors change in one string. Pretty much the only way (or at least the easiest way) to accomplish this is to use multiple DrawString calls on the SpriteBatch. When thinking about that I didn&amp;rsquo;t think it would be a terribly difficult task, but I decided to do a google search for any already made solutions. I found an article on the &lt;a href=&#34;http://www.xnawiki.com&#34;&gt;XNAWiki&lt;/a&gt; called &lt;a href=&#34;http://www.xnawiki.com/index.php?title=Inline_Color_Code_Processing&#34;&gt;Inline Color Code Processing&lt;/a&gt; that claims to (I haven&amp;rsquo;t tried it) do the trick. When I examined it though, I found that I couldn&amp;rsquo;t be happy with their implementation. They chose to define a set number of colors and then reference them in the string using an integer index. That to me seemed very limited, and even though my project is simple, I&amp;rsquo;d rather not hard code in a bunch of colors. What I wanted is to be able to type in a color in the string and have it parse out to the color I wanted, much like HTML or BBCODE would work. The best way I could think of to do this is using HEX values, just like HTML or CSS would work. Unfortunately, getting a color from HEX is another thing that isn&amp;rsquo;t built into XNA. So, back to google and I found &lt;a title=&#34;The Dead Pixel Society&#34; href=&#34;http://www.thedeadpixelsociety.com/2010/04/hex-colors/&#34; target=&#34;_blank&#34;&gt;this blog&lt;/a&gt; that had the extensions I needed already worked out! Ok, fantastic, now the final piece, I just needed to write up a function to display the text. It actually ended up being pretty easy and perhaps it&amp;rsquo;s not the best implementation, but it works perfectly. To use it, you setup your string like so: &amp;ldquo;You attack the [color:#FFFF0000]goblin[/color] and hit for [color:#FF00FF00]8[/color] damage.&amp;rdquo; Of course, just as the extension is converting the HEX to actual colors, you can convert the colors to HEX when you are making the string and use some of the built in colors like Color.Red.ToHex(true).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;public static void DrawColorFormattedText(SpriteBatch spriteBatch, SpriteFont font, Vector2 position, string text)
+{
+    Color defaultColor = Color.White;
+
+    // only bother if we have color commands involved
+    if (text.Contains(&amp;quot;[color:&amp;quot;))
+    {
+        // how far in x to offset from position
+        int currentOffset = 0;
+
+        // example:
+        // string.Format(&amp;quot;You attempt to hit the [color:#FFFF0000]{0}[/color] but [color:{1}]MISS[/color]!&amp;quot;,
+        // currentMonster.Name, Color.Red.ToHex(true));
+        string[] splits = text.Split(new string[] { &amp;quot;[color:&amp;quot; }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var str in splits)
+        {
+            // if this section starts with a color
+            if (str.StartsWith(&amp;quot;#&amp;quot;))
+            {
+                // #AARRGGBB
+                // #FFFFFFFFF
+                // #123456789
+                string color = str.Substring(0, 9);
+
+                // any subsequent msgs after the [/color] tag are defaultColor
+                string[] msgs = str.Substring(10).Split(new string[] { &amp;quot;[/color]&amp;quot; }, StringSplitOptions.RemoveEmptyEntries);
+
+                // always draw [0] there should be at least one
+                spriteBatch.DrawString(font, msgs[0], position + new Vector2(currentOffset, 0), color.ToColor());
+                currentOffset += (int)font.MeasureString(msgs[0]).X;
+
+                // there should only ever be one other string or none
+                if(msgs.Length == 2)
+                {
+                    spriteBatch.DrawString(font, msgs[1], position + new Vector2(currentOffset, 0), defaultColor);
+                    currentOffset += (int)font.MeasureString(msgs[1]).X;
+                }
+            }
+            else
+            {
+                spriteBatch.DrawString(font, str, position + new Vector2(currentOffset, 0), defaultColor);
+                currentOffset += (int)font.MeasureString(str).X;
+            }
+        }
+    }
+    else
+    {
+        // just draw the string as ordered
+        spriteBatch.DrawString(font, text, position, defaultColor);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here it is, pics or it didn&amp;rsquo;t happen :)&lt;/p&gt;
+
+&lt;p&gt;[caption id=&amp;ldquo;attachment_147&amp;rdquo; align=&amp;ldquo;alignleft&amp;rdquo; width=&amp;ldquo;384&amp;rdquo; caption=&amp;ldquo;Colored Rpg Text&amp;rdquo;]&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg&#34;&gt;&lt;img class=&#34;size-full wp-image-147&#34; title=&#34;coloredTextEx&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2010/05/coloredTextEx.jpg&#34; alt=&#34;&#34; width=&#34;384&#34; height=&#34;191&#34; /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

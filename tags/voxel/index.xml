@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Voxel on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/voxel/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Wed, 08 Jul 2009 12:42:44 MST</updated>
+    
+    <item>
+      <title>Voxels</title>
+      <link>http://bsparks.github.io/2009/07/08/Voxels/</link>
+      <pubDate>Wed, 08 Jul 2009 12:42:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/07/08/Voxels/</guid>
+      <description>&lt;p&gt;A while ago I was really looking into Voxels and Volumetric rendering. It seemed in the research I had done at the time that this was a somewhat old technology. It didnt look like anyone was still using it, even though it still seemed to me like it was a very viable solution. Anyway, now in looking at Ogre stuff I found that someone else has created a basic Voxel engine that uses Ogre to render it. &lt;a href=&#34;http://www.thermite3d.org/joomla/&#34; target=&#34;_blank&#34;&gt;Thermite 3D&lt;/a&gt; is the name of the engine, using what they call PolyVox technology. Both are available via the GPL and are open source.&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/qmZrdBBQThk&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;They are using it for fully destructable environments, which in themselves are very cool, but what I am thinking about is using it to create volumetric cloud systems and particle effects. Oh and the other thing that I think could become of it is actually being able to make caves. Making caves using the current standard (CSG) is one of the more challenging items. I think that there are a LOT of applications for this technology, which for some reason was usually only used for medical and scientific modelling. I think that they really have the right idea using it for games and other simulations. Plus, let&amp;rsquo;s mash-up I say, what can be created combining a 3D voxel world and the 3D browser web? Are those ridiculous early 90&amp;rsquo;s visions of the internet going to come to life?&lt;/p&gt;
+
+&lt;p&gt;Here are some of the voxel engines I found in the past, most from early 2000&amp;rsquo;s so that is why I thought this had died off&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.advsys.net/ken/voxlap/voxlap03.htm&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.advsys.net/ken/voxlap/voxlap03.htm&#34;&gt;http://www.advsys.net/ken/voxlap/voxlap03.htm&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.home.zonnet.nl/petervenis/index.htm&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.home.zonnet.nl/petervenis/index.htm&#34;&gt;http://www.home.zonnet.nl/petervenis/index.htm&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.codermind.com/articles/Voxel-terrain-engine-building-the-terrain.html&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.codermind.com/articles/Voxel-terrain-engine-building-the-terrain.html&#34;&gt;http://www.codermind.com/articles/Voxel-terrain-engine-building-the-terrain.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

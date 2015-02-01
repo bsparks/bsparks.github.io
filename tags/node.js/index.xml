@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Node.Js on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/node.js/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Wed, 18 Jul 2012 16:27:03 MST</updated>
+    
+    <item>
+      <title>Doing stuff with node.js other than running a server</title>
+      <link>http://bsparks.github.io/2012/07/18/Doing-stuff-with-node.js-other-than-running-a-server/</link>
+      <pubDate>Wed, 18 Jul 2012 16:27:03 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/07/18/Doing-stuff-with-node.js-other-than-running-a-server/</guid>
+      <description>
+
+&lt;p&gt;Just about everybody who&amp;rsquo;s doing something with &lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt; is creating a server. In fact, node.js is often referred to
+as a &amp;ldquo;server-side&amp;rdquo; javascript.  In fact here&amp;rsquo;s a great getting started tutorial on
+&lt;a href=&#34;http://net.tutsplus.com/tutorials/javascript-ajax/learning-serverside-javascript-with-node-js/&#34;&gt;net.tuts+&lt;/a&gt;. That tutorial covers
+a couple of things beyond the &amp;ldquo;hello world&amp;rdquo;, creating a simple HTTP server, and creating a live Twitter stream.
+Anyway, I think that shows my point that most tutorials and things that people are going to do about node.js
+involve either running a server or hooking up to some internet API. While I realize that today&amp;rsquo;s world is online,
+and I certainly don&amp;rsquo;t think that it isn&amp;rsquo;t short of awesome to do these things, I think that doing some every day
+offline tasks using javascript is &lt;em&gt;also&lt;/em&gt; awesome. So this will be the first article in possibly a
+series of &amp;ldquo;Doing stuff with node.js other than running a server&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to start by going over some real world problems that I have actually run into at work, and how to solve them using node.js.&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_0&#34;&gt;The Problem&lt;/h3&gt;
+
+&lt;p&gt;The design team has created several icons of various sizes for use as teacher avatars throughout the site. Upon opening the teacher folder, I see there are several sub folders and it is clear that the icons are to be organized by the dimensions of the image. There are 29x29, 40x40, 85x85, and 112x112 size folders. Great, ok so I immediately think when I&amp;rsquo;m using them in the website, we can just store the name of the image, and then change folders to get the size depending on where we are in the site. I open the 29x29 folder and see images like &amp;ldquo;teacher_apple.jpg&amp;rdquo; and &amp;ldquo;teacher_male.jpg&amp;rdquo;, I open the 40x40 folder and see things like &amp;ldquo;apple_40x40.jpg&amp;rdquo; and &amp;ldquo;male_40x40.jpg&amp;rdquo;. Way to be consistent guys! Ok, so each folder has only about 14 images inside, and I could go through one by one and rename them, but as a programmer that sounds hideously boring and lame! So here we go, even if it takes longer to write a javascript program to do it for me, it&amp;rsquo;ll be more fun! Plus the next time they do it, I&amp;rsquo;ll be ready for them!&lt;/p&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;The Solution&lt;/h3&gt;
+
+&lt;p&gt;Ok, so the first thing that you&amp;rsquo;re gonna want to do is have the node &lt;a href=&#34;http://nodejs.org/api/&#34;&gt;docs&lt;/a&gt; open, I can&amp;rsquo;t remember all the commands,
+if you can, good for you ;) We want to make modifications to the file system, so we&amp;rsquo;ll be using commands from that library.
+Also we&amp;rsquo;ll include the path library to make the file paths easier to work with. So first thing let&amp;rsquo;s just read one of the
+folders contents and make sure we have that down. I&amp;rsquo;m creating a file called cleanup.js in the same folder as I have
+the &amp;ldquo;teacher&amp;rdquo; images folder from the designers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;);
+
+var path = &amp;quot;teacher/40x40&amp;quot;;
+
+fs.readdir(p.join(process.cwd(), path), function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&amp;lt;len;i++) {
+            console.log(files[i]);
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the most part I think the docs should explain what all that does, so next let&amp;rsquo;s rename the files instead of just printing
+them out. To see this in action simply type: &lt;strong&gt;node cleanup.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;);
+
+var path = &amp;quot;teacher/40x40&amp;quot;,
+    folder = p.join(process.cwd(), path);
+
+fs.readdir(folder, function(err, files) {
+    if(!err) {
+        for(var i=0, len = files.length;i&amp;lt;len;i++) {
+            var original = files[i],
+                modified = original.replace(&amp;quot;_40x40&amp;quot;, &amp;quot;&amp;quot;),
+                callback = (function(o, m) { return function(err) {
+                    if(!err) {
+                        console.log(o + &amp;quot; --&amp;gt; &amp;quot; + m);
+                    } else {
+                        console.log(&amp;quot;error&amp;quot;, err);
+                    }
+                }; }(original, modified));
+
+            fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+        }
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, great so that works. I&amp;rsquo;ve already realized that hard coding the path in there isn&amp;rsquo;t going to be useful for long.
+At the very least, each folder I want to run this on I have to change the path, and change the string that I want to
+replace. Instead it&amp;rsquo;d be cool if I could take in parameters from the command line. While you can do this with just
+the built in libraries, I happen to know and love another helper library for this
+called &lt;a href=&#34;https://github.com/visionmedia/commander.js/&#34;&gt;Commander&lt;/a&gt;. If you don&amp;rsquo;t already know how to use NPM to install
+packages, you&amp;rsquo;ll want to read up on that, but for now, just type: &lt;strong&gt;&lt;em&gt;npm install commander&lt;/em&gt;&lt;/strong&gt; in the same folder as the
+script. Commander lets you specify option flags as well as commands and comes with built in help. So now we&amp;rsquo;ll modify the program to
+be a little more useful.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var fs = require(&amp;quot;fs&amp;quot;),
+    p = require(&amp;quot;path&amp;quot;),
+    app = require(&amp;quot;commander&amp;quot;);
+
+function renameX(folder, find, replaceWith) {
+    var flags, pattern, regex;
+
+    // change to the defined cwd
+    process.chdir(app.cwd);
+
+    // default to empty string for optional replacement
+    if(!replaceWith) {
+        replaceWith = &amp;quot;&amp;quot;;
+    }
+
+    // regex from string credit to &amp;quot;Anonymous&amp;quot; http://stackoverflow.com/a/874742
+    if(find[0] === &#39;/&#39;) {
+        flags = find.replace(/.*\/([gimy]*)$/, &#39;$1&#39;);
+        pattern = find.replace(new RegExp(&#39;^/(.*?)/&#39;+flags+&#39;$&#39;), &#39;$1&#39;);
+        regex = new RegExp(pattern, flags);
+    } else {
+        regex = find; // just simple string
+    }
+
+    fs.readdir(folder, function(err, files) {
+        if(!err) {
+            for(var i=0, len = files.length;i&amp;lt;len;i++) {
+                var original = files[i],
+                    modified = original.replace(regex, replaceWith),
+                    callback = (function(o, m) { return function(err) {
+                        if(!err) {
+                            console.log(o + &amp;quot; --&amp;gt; &amp;quot; + m);
+                        } else {
+                            console.log(&amp;quot;error&amp;quot;, err);
+                        }
+                    }; }(original, modified));
+
+                fs.rename(p.join(folder, original), p.join(folder, modified), callback);
+            }
+        }
+    });
+}
+
+// optionally allow us to run from another starting point
+app.option(&amp;quot;-w, --cwd [dir]&amp;quot;, &amp;quot;set the working path&amp;quot;, process.cwd());
+
+// setup the main renaming command
+app
+    .command(&amp;quot;rx &amp;lt;folder&amp;gt; &amp;lt;find&amp;gt; [replaceWith]&amp;quot;)
+    .description(&amp;quot;rename all files in a folder using a regex replace&amp;quot;)
+    .action(renameX);
+
+// parse the arguments and follow through
+app.parse(process.argv);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I wrapped the original logic inside a function, the params of the function determine what to do. The arguments passed into Commander&amp;rsquo;s syntax are what gets passed into the function. The &amp;lt;&amp;gt; means required, and the [] is optional. I also created one option so that it can be executed in the context of another directory. That too is optional, and the final argument in that is the default (process.cwd()). So now we can type: &lt;strong&gt;node cleanup.js rx &amp;ldquo;./teacher/40x40&amp;rdquo; &amp;ldquo;_40x40&amp;rdquo;&lt;/strong&gt; ; I&amp;rsquo;ve left off the final argument &lt;strong&gt;replaceWith&lt;/strong&gt; because it&amp;rsquo;s optional, and I&amp;rsquo;ve defaulted it to &amp;ldquo;&amp;rdquo; in the function. This should give you output something like this, depending on your filenames.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+C:\Users\Ben\Documents\node\useful things&amp;gt;node cleanup.js rx &amp;quot;./teacher/40x40&amp;quot; &amp;quot;_40x40&amp;quot;
+
+apple_40x40.jpg --&amp;gt; apple.jpg
+arrow_40x40.jpg --&amp;gt; arrow.jpg
+greenstar_40x40.jpg --&amp;gt; greenstar.jpg
+fire_40x40.jpg --&amp;gt; fire.jpg
+earth_40x40.jpg --&amp;gt; earth.jpg
+mountain_40x40.jpg --&amp;gt; mountain.jpg
+brain_40x40.jpg --&amp;gt; brain.jpg
+stones_40x40.jpg --&amp;gt; stones.jpg
+teacher_female_icon_40x40.png --&amp;gt; teacher_female_icon.png
+polarbear_40x40.jpg --&amp;gt; polarbear.jpg
+moon_40x40.jpg --&amp;gt; moon.jpg
+water_40x40.jpg --&amp;gt; water.jpg
+teacher_male_icon_40x40.png --&amp;gt; teacher_male_icon.png
+umbrella_40x40.jpg --&amp;gt; umbrella.jpg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So there we go, mission accomplished, it didn&amp;rsquo;t take too much longer than manually renaming them. But just think, if there had been
+ 100 images in each folder, how much of a pain in the ass would that have been? Now we can just run the command on each folder,
+  and bulk cleanup the files.
+As I&amp;rsquo;m finishing this up I can think of a few things that still need hammering out, but I&amp;rsquo;ll save them for later.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;fs.readdir returns an array of files, technically even folders are also files, so they&amp;rsquo;d be affected by the rename as well&lt;/li&gt;
+&lt;li&gt;we should create a package.json file so that npm can install our dependencies for us&lt;/li&gt;
+&lt;li&gt;consider installing it globally using the &amp;ldquo;bin&amp;rdquo; option so that we can just call &amp;ldquo;cleanup&amp;rdquo; from anywhere without having to
+call node or have the js file in the path&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There could be other things I haven&amp;rsquo;t thought of, bugs, tests, who knows. It is only a quick utility script after all.
+If anyone has any suggestions leave a comment!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

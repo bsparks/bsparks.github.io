@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Pages on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/pages/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Fri, 30 Jan 2015 11:48:48 MST</updated>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/pages/license/</link>
+      <pubDate>Fri, 30 Jan 2015 11:48:48 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://localhost:1313/pages/license/</guid>
+      <description>&lt;p&gt;The MIT License (MIT)&lt;/p&gt;
+
+&lt;p&gt;Copyright &amp;copy; {{ .Now.Format &amp;ldquo;2006&amp;rdquo; }} {{ .Site.Author.name }}&lt;/p&gt;
+
+&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:&lt;/p&gt;
+
+&lt;p&gt;The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.&lt;/p&gt;
+
+&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>http://localhost:1313/pages/about/</link>
+      <pubDate>Mon, 26 Jan 2015 22:57:46 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://localhost:1313/pages/about/</guid>
+      <description>
+
+&lt;h3 id=&#34;toc_0&#34;&gt;Wizard of the Web&lt;/h3&gt;
+
+&lt;p&gt;Cheesy ass shit!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

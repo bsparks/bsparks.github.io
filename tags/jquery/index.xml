@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Jquery on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/jquery/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Thu, 05 May 2011 09:01:44 MST</updated>
+    
+    <item>
+      <title>Jquery Conference</title>
+      <link>http://bsparks.github.io/2011/05/05/Jquery-Conference/</link>
+      <pubDate>Thu, 05 May 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/05/05/Jquery-Conference/</guid>
+      <description>&lt;p&gt;I went to the &lt;a title=&#34;jQuery&#34; href=&#34;http://jquery.com&#34; target=&#34;_blank&#34;&gt;jQuery&lt;/a&gt; &lt;a title=&#34;Conference&#34; href=&#34;http://events.jquery.org/2011/sf-bay-area/&#34; target=&#34;_blank&#34;&gt;Conference&lt;/a&gt; in Mountain View, CA a little while ago. It was a great experience, and I think that I learned quite a bit. When I got back, I gave a short presentation at work on some of the highlights. Here are my &lt;a title=&#34;slides&#34; href=&#34;http://superiorcode.com/jqcon&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; that I used for anyone who is interested. Thanks goes to &lt;a title=&#34;Adam J Sontag&#34; href=&#34;http://twitter.com/#!/ajpiano&#34; target=&#34;_blank&#34;&gt;@ajpiano&lt;/a&gt; for the base template.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Voxel Game</title>
+      <link>http://bsparks.github.io/2011/02/15/Voxel-Game/</link>
+      <pubDate>Tue, 15 Feb 2011 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/02/15/Voxel-Game/</guid>
+      <description>&lt;p&gt;Well, I have been interested in Voxels and Volumetric rendering for quite some time. I have also been following the game &lt;a title=&#34;Minecraft&#34; href=&#34;http://minecraft.net&#34; target=&#34;_blank&#34;&gt;Minecraft&lt;/a&gt; for a very long time. Well, I decided to start working on my own block engine finally. It took quite a bit of research but I finally understand how it&amp;rsquo;s done (well most of it). So now a couple of friends of mine and I are working on creating a version for the Xbox 360.
+&lt;p style=&#34;text-align: center;&#34;&gt;Here are some screenshots:
+&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/colors.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-large wp-image-184&#34; title=&#34;Colored Lights&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/colors-1024x577.jpg&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;338&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/sweet.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-183&#34; title=&#34;Block Game&#34; src=&#34;http://superiorcode.com/blog/wp-content/uploads/2011/02/sweet.jpg&#34; alt=&#34;&#34; width=&#34;854&#34; height=&#34;482&#34; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why didn&#39;t I already know about this?</title>
+      <link>http://bsparks.github.io/2009/01/06/Why-didnt-I-already-know-about-this/</link>
+      <pubDate>Tue, 06 Jan 2009 00:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/01/06/Why-didnt-I-already-know-about-this/</guid>
+      <description>&lt;p&gt;Ok, apparently I am way behind the times. Maybe it&amp;rsquo;s the nature of my work (I&amp;rsquo;ll go into that someday) or I dunno what, but all of a sudden I feel like I know next to nothing about what&amp;rsquo;s going on in the web development world.&lt;/p&gt;
+
+&lt;p&gt;First, if you&amp;rsquo;re like me and somehow crawling out from the rock you&amp;rsquo;ve been living under for who knows how long let me list off a few things that I think I should have known:
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/HTML5&#34; target=&#34;_blank&#34;&gt;HTML5&lt;/a&gt; has been in development since 2007&lt;/li&gt;
+    &lt;li&gt;Javascript = Ajax = Javascript + HTML = Web 2.0&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://json.org&#34; target=&#34;_blank&#34;&gt;JSON&lt;/a&gt; is very popular and seems faster, easier, and just better than XML&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://developer.mozilla.org/En/HTML:Canvas&#34; target=&#34;_blank&#34;&gt;Canvas &lt;/a&gt;lets you draw with javascript!&lt;/li&gt;
+&lt;/ul&gt;
+I&amp;rsquo;m sure there is more for the list of things that I didnt really know but think I should have. &lt;a href=&#34;http://en.wikipedia.org/wiki/HTML5&#34; target=&#34;_blank&#34;&gt;HTML 5&lt;/a&gt; specification apparently is going to have all sorts of interesting things, the first draft was submitted (according to wikipedia) in January of 2008. I always thought that Ajax stood for Asyncrhonous Javascript And Xml, and really was describing primarily the use of XmlHttpObject to transmit data without having to refresh the page. But apparently it doesn&amp;rsquo;t really mean anything, it&amp;rsquo;s basically how the web is developed now. &lt;a href=&#34;http://json.org&#34; target=&#34;_blank&#34;&gt;JSON&lt;/a&gt; I had heard about, at least the name, but for whatever reason chose to dismiss it and not even look into what it was. Now that I have I have to say it seems easier to work with and shrinks the size of &amp;ldquo;messages&amp;rdquo; about half the size of xml (because you dont have all the tags and attribute extras). There was a huge debate (is it still going on?) but I think that was probably over with in 2006 or early 2007.&lt;/p&gt;
+
+&lt;p&gt;I suppose I feel like I should have not dared ever call my self a web developer. Before this holiday weekend, I never used any RSS readers or had any subscriptions to the news. I did search for technology stuff, read blogs, things like that, but it was almost always for a specific thing (working on .NET looking for tutorials on how to do something). The only websites that I ever worked on were for work. I guess this will be my New Year&amp;rsquo;s resolution. I&amp;rsquo;m going to do my best this year and going forward to get up to speed with the Web (Ben 2.0).&lt;/p&gt;
+
+&lt;p&gt;Also, I&amp;rsquo;m not really sure yet what the Blog protocol is, should I post once a day and just cram everything into one post, or should I post once for each major topic. It seems to me that having topics would make things easier to search for, if I have a 100 posts a day so be it, so that&amp;rsquo;s what I&amp;rsquo;ll do&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Talking on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/talking/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Mon, 03 Dec 2012 09:01:44 MST</updated>
+    
+    <item>
+      <title>2012 is almost over</title>
+      <link>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</link>
+      <pubDate>Mon, 03 Dec 2012 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</guid>
+      <description>&lt;p&gt;Well, here we are at the end of the year. I haven&amp;rsquo;t made very much progress on my resolutions. Perhaps next year will be better.&lt;/p&gt;
+
+&lt;p&gt;In other news I somewhat recently (August) got interested in angularjs, &lt;a href=&#34;http://angularjs.org&#34;&gt;http://angularjs.org&lt;/a&gt; It&amp;rsquo;s a pretty awesome javascript framework for making web applications. I plan to post some tutorials and other such things soon.&lt;/p&gt;
+
+&lt;p&gt;The twins are 9 months old now, and I just am starting to feel like I have a little more time to work on stuff. Perhaps next year&amp;rsquo;s resolutions will be achieved :D&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

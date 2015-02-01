@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Open-Source on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/tags/open-source/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Tue, 28 Jul 2009 09:01:44 MST</updated>
+    
+    <item>
+      <title>Still Hackin</title>
+      <link>http://bsparks.github.io/2009/07/28/Still-Hackin/</link>
+      <pubDate>Tue, 28 Jul 2009 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/07/28/Still-Hackin/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m still working on the &lt;a href=&#34;http://dungeonhack.sourceforge.net/Main_Page&#34; target=&#34;_blank&#34;&gt;DungeonHack&lt;/a&gt; project, and recently I&amp;rsquo;ve been given SVN commit access! Yay! This is the first open source project that I&amp;rsquo;ve ever officially been a part of. I&amp;rsquo;ve contributed several patches and actually feel like progress is being made which is always a plus. I&amp;rsquo;m glad that I&amp;rsquo;ve joined a team instead of trying to build a game by myself like I usually do.&lt;/p&gt;
+
+&lt;p&gt;Right now I&amp;rsquo;m working on integrating Paged Geometry grass into the engine instead of the current. This way we can use a color map to mask the grass off the roads.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dungeon Hacking</title>
+      <link>http://bsparks.github.io/2009/07/15/Dungeon-Hacking/</link>
+      <pubDate>Wed, 15 Jul 2009 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/07/15/Dungeon-Hacking/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve joined the open source project &lt;a title=&#34;DungeonHack&#34; href=&#34;http://dungeonhack.sourceforge.net&#34; target=&#34;_blank&#34;&gt;DungeonHack&lt;/a&gt;, a FOSS game &amp;ldquo;Forged in the Spirit of Daggerfall&amp;rdquo;. Apparently at one time they planned to remake Daggerfall but are now just trying to make a modern 3D rpg game that has some of the best qualities of Daggerfall.&lt;/p&gt;
+
+&lt;p&gt;It took me a bit to get it all compiled, but I was able to get it up and running. They are using Python for the scripting system. I&amp;rsquo;ve never used Python before, though I&amp;rsquo;ve heard of it and seen many projects choose to use it. I was really hoping to use Google&amp;rsquo;s V8 engine for a scripting engine, but I suppose it wouldn&amp;rsquo;t hurt to learn another language. The good thing is that since it&amp;rsquo;s all open source I can mess around with it any way I like. I may even work on integrating the V8 engine in there at some point. (either on my own or convince them to use it).&lt;/p&gt;
+
+&lt;p&gt;My only concern with Python really is that I think that the end user has to install Python for the game to work. I suppose that isn&amp;rsquo;t really different from having to have .NET framework installed or Java or any of those, but I think that there is something that most professional games do not do. Most of the commercial titles that I play don&amp;rsquo;t need to install these, they usually have all their dependencies built in. Or maybe I just never noticed because I already had them installed.&lt;/p&gt;
+
+&lt;p&gt;There are several other open source libraries that the system uses: Ogre3D for graphics, Bullet for physics, OpenAL for sound, myGUI for a UI, and PagedGeometry.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

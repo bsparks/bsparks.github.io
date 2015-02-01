@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>General on superior code </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://bsparks.github.io/categories/general/index.xml/</link>
+    <language>en-us</language>
+    <author>Ben Sparks</author>
+    
+    <updated>Mon, 26 Jan 2015 23:01:44 MST</updated>
+    
+    <item>
+      <title>First Post Using Hugo</title>
+      <link>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</link>
+      <pubDate>Mon, 26 Jan 2015 23:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2015/01/26/First-Post-Using-Hugo/</guid>
+      <description>&lt;p&gt;Well I&amp;rsquo;ve been thinking about switching from Wordpress to a static site generator for some time. Now I&amp;rsquo;ve done it.
+There are several generators out there, but I&amp;rsquo;ve decided to go with &lt;a href=&#34;http://hugo.spf13.com/&#34;&gt;Hugo&lt;/a&gt;.
+I don&amp;rsquo;t really get all that much benefit from the WYSIWYG aspects of Wordpress, and it just opens up yourself to hacking and spam because of the ability to
+edit online. I&amp;rsquo;m also not a huge fan of PHP, though the application has served me well enough for years I suppose.&lt;/p&gt;
+
+&lt;p&gt;Another reason is that it&amp;rsquo;ll force me to really grok markdown. So I decided to port all (most) of my older posts over from
+Wordpress. Sadly, I haven&amp;rsquo;t found a faster way to do it other than manually. The good news is that I never had all that many entries :)
+Oh and it helps that markdown and html are just fine together.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2012 is almost over</title>
+      <link>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</link>
+      <pubDate>Mon, 03 Dec 2012 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/12/03/2012-is-almost-over/</guid>
+      <description>&lt;p&gt;Well, here we are at the end of the year. I haven&amp;rsquo;t made very much progress on my resolutions. Perhaps next year will be better.&lt;/p&gt;
+
+&lt;p&gt;In other news I somewhat recently (August) got interested in angularjs, &lt;a href=&#34;http://angularjs.org&#34;&gt;http://angularjs.org&lt;/a&gt; It&amp;rsquo;s a pretty awesome javascript framework for making web applications. I plan to post some tutorials and other such things soon.&lt;/p&gt;
+
+&lt;p&gt;The twins are 9 months old now, and I just am starting to feel like I have a little more time to work on stuff. Perhaps next year&amp;rsquo;s resolutions will be achieved :D&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resolutions just in time for the apocalypse</title>
+      <link>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</link>
+      <pubDate>Thu, 05 Jan 2012 14:40:00 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2012/01/05/Resolutions-just-in-time-for-the-apocalypse/</guid>
+      <description>&lt;p&gt;Well I usually don&amp;rsquo;t make New Year&amp;rsquo;s resolutions. That way I don&amp;rsquo;t have to deal with any of the disappointment of not following through. However, this year for some reason I&amp;rsquo;m inclined to make a few. I have been inspired and motivated to get better and smarter by stuff like this: &lt;a href=&#34;http://david-hu.com/2012/01/05/my-experiment-in-daily-idea-generation.html&#34; target=&#34;_blank&#34;&gt;Idea Experiment&lt;/a&gt; and &lt;a href=&#34;http://developerbookclub.net/&#34; target=&#34;_blank&#34;&gt;Developer Book Club&lt;/a&gt;. Not that I&amp;rsquo;m not always about learning new stuff, but I guess those sites (and others) have motivated me to post this at least and try to hold myself accountable.
+&lt;ul&gt;
+    &lt;li&gt;Read &lt;a href=&#34;http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34; target=&#34;_blank&#34;&gt;Clean Code&lt;/a&gt; - I purchased the book in Dec of 2010 according to Amazon, haven&amp;rsquo;t read it yet. Just about any experienced programmer I read about tends to recommend this one.&lt;/li&gt;
+    &lt;li&gt;Finish &lt;a href=&#34;http://www.facebook.com/forthemoonking&#34; target=&#34;_blank&#34;&gt;For the Moon King&lt;/a&gt; in some form. Back in August I hit a brick wall pretty hard on this one. Got the game almost to the point of being ready to release on the Xbox 360, however I haven&amp;rsquo;t been able to figure out some showstopping performance issues. My guess is that I&amp;rsquo;m doing something wrong :) I have a action plan for this item already, more about that later.&lt;/li&gt;
+    &lt;li&gt;Do a month of idea generation, similar to what is described in the blog post above.&lt;/li&gt;
+    &lt;li&gt;Keep posting tutorials on XNA (&lt;a href=&#34;http://www.elderscrolls.com/skyrim/&#34; target=&#34;_blank&#34;&gt;Skyrim&lt;/a&gt; is to blame for the lag on that one). &amp;ldquo;I used to write some decent tutorials for XNA, until I took an arrow in the knee.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+Maybe there should be more? Dunno, I&amp;rsquo;ll just edit this post and add some if I think they are needed. I had some general &amp;ldquo;ideas&amp;rdquo; but I think those are prolly gonna be best for the idea generator time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Desert Code Camp 2011.2</title>
+      <link>http://bsparks.github.io/2011/11/05/Desert-Code-Camp-2011.2/</link>
+      <pubDate>Sat, 05 Nov 2011 22:54:23 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2011/11/05/Desert-Code-Camp-2011.2/</guid>
+      <description>&lt;p&gt;I gave a talk today at the &lt;a href=&#34;http://nov2011.desertcodecamp.com/&#34; target=&#34;_blank&#34;&gt;Desert Code Camp&lt;/a&gt; on &lt;a href=&#34;http://nov2011.desertcodecamp.com/session/398&#34; target=&#34;_blank&#34;&gt;XNA 4.0 Development Basics&lt;/a&gt;. It was my first time presenting at any sort of event. I think overall it went pretty well, tho I had a few issues. The talk was only an hour long, and I found myself being able to cover less than I had thought. I think that in the near future I will be posting some tutorials based around this, so stay tuned.&lt;/p&gt;
+
+&lt;p&gt;Thanks to all those who attended, as promised here are the &lt;a href=&#34;https://docs.google.com/open?id=0B6DOWf9Gtu5PZmI0NjAwNjItYmYwYS00NTk3LWFlNTQtNzdkYjBmNTg1NDgx&#34; target=&#34;_blank&#34;&gt;materials&lt;/a&gt; from the talk.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Another late entry</title>
+      <link>http://bsparks.github.io/2009/07/08/Another-late-entry/</link>
+      <pubDate>Wed, 08 Jul 2009 09:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/07/08/Another-late-entry/</guid>
+      <description>&lt;p&gt;Recently I&amp;rsquo;ve become obsessed with Javascript. The more I use it the more I like it. I&amp;rsquo;ve started using the &lt;a title=&#34;ExtJS&#34; href=&#34;http://www.extjs.com&#34; target=&#34;_blank&#34;&gt;ExtJS &lt;/a&gt;framework at work in building the CRM system.&lt;/p&gt;
+
+&lt;p&gt;On the games front, I&amp;rsquo;ve been working on writing a wrapper for &lt;a href=&#34;http://gdk.thegamecreators.com/&#34; target=&#34;_blank&#34;&gt;DarkGDK&lt;/a&gt; for the &lt;a href=&#34;http://code.google.com/p/v8/&#34; target=&#34;_blank&#34;&gt;V8&lt;/a&gt; Javascript engine. I&amp;rsquo;ve almost got all of the commands for it wrapped, then I plan to release it as a free community experiment on the community.&lt;/p&gt;
+
+&lt;p&gt;I also started to look more into &lt;a href=&#34;http://www.ogre3d.org/&#34; target=&#34;_blank&#34;&gt;Ogre3d &lt;/a&gt;for the engine instead of DarkGDK. It has always bothered me that DarkGDK isn&amp;rsquo;t Object Oriented. Of course everything has it&amp;rsquo;s ups and downs, DarkGDK has libraries for many different aspects of a game engine (sound, networking, input, etc.) where Ogre3d is just the rendering engine. There are tons of plugins and extensions however to getting those extra libraries working with Ogre.&lt;/p&gt;
+
+&lt;p&gt;One really cool thing that I found while looking around at Ogre is &lt;a href=&#34;http://princeofcode.com/awesomium.php&#34; target=&#34;_blank&#34;&gt;Awesomium&lt;/a&gt; which is taking the Chromium sdk and combining that with the Ogre engine to have browsing inside a 3d environment. I suppose when it comes down to it, it isn&amp;rsquo;t super useful application wise for things to be in 3D, but as their suggestions with games it makes sense. Having web ads on virtual billboards in game is neat. Paying for the games&amp;rsquo; production with in game advertising isn&amp;rsquo;t a new concept, but I don&amp;rsquo;t think there have been many advances prior with it. Beyond that I also always liked that EverQuest 2 had an in-game browser (although it was UI only), having in-game browsing in an MMO seems almost necessary today. What really excites me is just the possibility of creating UI elements using HTML and Javascript. I think having a game or other 3D application that can load up a website and be controlled by that website is very interesting. I also think (which one of my ideas with my V8 wrapper) that loading up some games purely by remotely loading some Javascript file is awesome. If you could merge the website and the game so that people outside the client could have some effect on people inside the 3d client that would be cool too. First step though would be a Javascript arcade. Post the simple text file to the website or use a web interface to configure a database, save the script, then have the client load it up remotely with JSON data.&lt;/p&gt;
+
+&lt;p&gt;I realize that the above is a sort of broken thought, but whatever, it&amp;rsquo;s my blog :P&lt;/p&gt;
+
+&lt;p&gt;Check out this video of the NaviLibrary which uses the Awesomium to do the whole 3D browsing, it&amp;rsquo;s pretty cool.&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/jbkEmWw9krc&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Becoming an Expert</title>
+      <link>http://bsparks.github.io/2009/03/18/Becoming-an-Expert/</link>
+      <pubDate>Wed, 18 Mar 2009 14:21:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/03/18/Becoming-an-Expert/</guid>
+      <description>&lt;p&gt;Well, it&amp;rsquo;s been a while since I&amp;rsquo;ve posted. I knew when I created this blog that it would be a struggle for me to keep going with it&amp;hellip; but here we are, trying to move along&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;I was surfing around looking for programming inspiration today and stumbled across this, I&amp;rsquo;m going to post it here because I think it&amp;rsquo;s important.&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;Secret Teachings: The Programmer&amp;rsquo;s One Inch Death Punch&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;How do programmer&amp;rsquo;s get better at their job? Few programmers think of programming as a true profession. For most it&amp;rsquo;s just a job. They go to work, do what&amp;rsquo;s asked, and go home. They don&amp;rsquo;t read. They don&amp;rsquo;t attend conferences. They don&amp;rsquo;t train. In fact, the training business for software is pretty much dead and has been for years. &lt;/p&gt;
+
+&lt;p&gt;Other professions have different attitudes. Professional athletes train constantly to improve their skills. Even doctors and accountants have stringent continuing education requirements so they stay current. &lt;/p&gt;
+
+&lt;p&gt;What can we programmers do? Let&amp;rsquo;s first look at how expert performers are created in the first place. That might help us figure out how we can become better. Time in an article called &lt;a href=&#34;http://www.time.com/time/health/article/0,8599,1717927-2,00.html&#34;&gt;The Science of Experience&lt;/a&gt; has a lot of potentially fruitful ideas: 
+&lt;ol&gt;
+    &lt;li&gt;The number of years of experience in a domain is a poor predictor of attained performance.&lt;/li&gt;
+    &lt;li&gt;Rather than mere experience or even raw talent, it is dedicated, slogging, generally solitary exertion, repeatedly practicing the most difficult physical tasks for an athlete, repeatedly performing new and highly intricate computations for a mathematician, that leads to first-rate performance. And it should never get easier; if it does, you are coasting, not improving.&lt;/li&gt;
+    &lt;li&gt;They key is &amp;ldquo;deliberate practice,&amp;rdquo; by which is meant the kind of practice we hate, the kind that leads to failure and hair-pulling and fist-pounding. You like the Tuesday New York &lt;span&gt;Times&lt;/span&gt; crossword? You have to tackle the Saturday one to be really good.&lt;/li&gt;
+    &lt;li&gt;Great performance comes mostly from deliberate practice but also from another activity: regularly obtaining accurate feedback.&lt;/li&gt;
+    &lt;li&gt;Experts tend to be good at their particular talent, but when something unpredictable happens, something that changes the rules of the game they usually play, they&amp;rsquo;re little better than the rest of us.&lt;/li&gt;
+    &lt;li&gt;Entire classes of experts ? for instance, those who pick stocks for a living, are barely better than novices. (Experienced investors do perform a little ahead of chance, his studies show, but not enough to outweigh transaction costs.)&lt;/li&gt;
+    &lt;li&gt;Researchers found that élite skaters spent 68% of their sessions practicing jumps, one of the riskiest and most demanding parts of figure-skating routines. Skaters in a second tier, who were just as experienced in terms of years, spent only 48% of their time on jumps, and they rested more often.&lt;/li&gt;
+    &lt;li&gt;Experience is not only insufficient for expert performance; in some cases, it can hurt. Highly experienced people tend to execute routine tasks almost unconsciously. Experience in a particular task frees space in your mind for other cognitive pursuits,  wondering what&amp;rsquo;s for dinner, answering your cell, singing along with Justin Timberlake,  but those things can distract you from the accident you&amp;rsquo;re about to have.&lt;/li&gt;
+    &lt;li&gt;Experience can also lead to overconfidence: a study in the journal &lt;em&gt;Accident Analysis &amp;amp; Prevention&lt;/em&gt; found that licensed race-car drivers had more on-the-road accidents than controls did.&lt;/li&gt;
+&lt;/ol&gt;
+None of this trips my BS meter. It makes a lot of sense and jibes with experience. We all know people with 10 years resume experience in X who couldn&amp;rsquo;t program their way out of a paper bag while someone with just 1 year of experience continually delivers quality results. And I know I&amp;rsquo;ve grown the most when truly challenged to solve new problems. &lt;/p&gt;
+
+&lt;p&gt;Given the science of experience article I think &lt;a href=&#34;http://codingdojo.org/&#34;&gt;Coding Dojos&lt;/a&gt; seem like a potential solution to the programmer training dilemma. A coding dojo is &amp;ldquo;a meeting where a bunch of coders get together to work on a programming challenge.&amp;rdquo; It&amp;rsquo;s a form of deliberate practice, which is &amp;ldquo;not the same as experience gained while doing your job. It is when you actually seek out experiences that will stretch your skills just the right amount, and give you feedback that enables you to learn.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;For thousands of years martial arts have been taught in a deep mentoring relationship using a long progression of increasing difficulty and challenge. The path from a white belt to a black belt is long, it&amp;rsquo;s hard, but in the end you learn. You learn through constant practice and challenge. &lt;/p&gt;
+
+&lt;p&gt;It would be interesting to consider how a similar infrastructure could be setup to train programmers.&lt;/p&gt;
+
+&lt;p&gt;Taken from: &lt;a href=&#34;http://radio.weblogs.com/0103955/categories/stupidHumanProgramming/&#34;&gt;http://radio.weblogs.com/0103955/categories/stupidHumanProgramming/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>http://bsparks.github.io/2009/01/05/Hello-World/</link>
+      <pubDate>Mon, 05 Jan 2009 08:01:44 MST</pubDate>
+      <author>Ben Sparks</author>
+      <guid>http://bsparks.github.io/2009/01/05/Hello-World/</guid>
+      <description>&lt;p&gt;Well, finally setup a blog. Wordpress seems to be pretty much the standard. Looks nice.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m not sure on the theme though.&lt;/p&gt;
+
+&lt;p&gt;So, in this blog I plan to note interesting things (to me).  Recently I&amp;rsquo;ve been very heavy into Javascript research, mostly because of YUI and Chrome. I got sick and tired of my work website not working in anything but IE. Even though I&amp;rsquo;m behind the times, I figure it&amp;rsquo;s never too late to catch up. So I&amp;rsquo;ve been reading up a lot on Javascript techniques, YUI, Google Gears, and other nifty stuff.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m planning to write a web rpg at some point, problem is I can&amp;rsquo;t decide on the server technology to use. (Already pretty set on YUI for my main js lib). It&amp;rsquo;s either going to be classic ASP (I have tons of exp in this), Asp.Net (have medium exp in this) or PHP (for some reason I fight this one).&lt;/p&gt;
+
+&lt;p&gt;Anyway, I was thinking of doing a Roguelike, only a PBBG and maybe even MMO-ish. I found a javascript tile map engine that uses JQuery called gTile. I took a look at it, and while it does seem to run OK, it looks to me that it is far from optimised. For instance each tile loads an image, even if it&amp;rsquo;s the same image that is previously loaded. So I was thinking of making a tile engine using CSS Sprites. What I don&amp;rsquo;t know though is whether or not it&amp;rsquo;ll be better to do a map that only renders the visible tiles, or render the whole thing and scroll the div. I&amp;rsquo;m guessing the lower rendering amount, and just change the sprite background position on the fly. Then the actual map data would be kept track of by the js engine. I&amp;rsquo;ll have to try it out I guess, just get a simple panel with map cells that I can &amp;ldquo;pretend&amp;rdquo; to scroll. If that works, then simply have 2 or 3 layers of the same thing on top for some depth sorting. Makes me wonder, if &lt;em&gt;that&lt;/em&gt; was fast, then could one in theory come up with a 3D engine? I&amp;rsquo;m sure someone has done 3D in js before&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Hmm&amp;hellip;. this is my first real blog, I bet I&amp;rsquo;ll have to go back and setup links for all those words up there :) If anyone manages to read this thing, HI! :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
