@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="en">
 <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Always learning &middot; Ben Sparks</title>
 
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <title>Always learning... &middot; Ben Sparks</title>
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
-  
-  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/poole-overrides.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/hyde-overrides.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/hyde-x.css">
-  <link rel="stylesheet" href="http://localhost:1313/css/highlight/sunburst.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -30,6 +31,7 @@
   
 </head>
 <body class="theme-base-pp">
+
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
@@ -39,64 +41,82 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="http://localhost:1313/">Blog</a></li>
+      <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
       
     </ul>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="https://github.com/bsparks">GitHub</a></li>
-      
-      
-      
-      <li class="sidebar-nav-item"><a href="https://twitter.com/warspawn">Twitter</a></li>
+
     </ul>
 
-    <p>Copyright &copy; 2015 <a href="http://localhost:1313/license">License</a><br/>
+      <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+      
+      
+      <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
+      
+
+    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
        Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
 </div>
 
+
+
 <div class="content container">
   <div class="post">
-    <h1>Always learning...</h1>
+    <h1>Always learning</h1>
     <span class="post-date">Sep 18, 2009 &middot; 2 minute read</span>
+
+    <div class="tags-list">
+        Tags:
+        
+    </div>
+
     <p>I am reminded recently in my work with the <a href="http://dungeonhack.sourceforge.net">DungeonHack</a> project that I am always learning. Just when I
- started to think that I was maybe more skilled in c++ than I would rate myself, I run into some major blocks. Basically having fun with
-  pointers. So, for instance, I want the player to cast a ray out from his head that checks for collisions with other game objects. When
-   it hits an object, it sets the player target to the object, and fires a callback event on the object.</p>
+started to think that I was maybe more skilled in c++ than I would rate myself, I run into some major blocks. Basically having fun with
+pointers. So, for instance, I want the player to cast a ray out from his head that checks for collisions with other game objects. When
+it hits an object, it sets the player target to the object, and fires a callback event on the object.</p>
 
 <p>The problem is: I have Class Player, it has a pointer to class GameEntity (target). If the object that the pointer points to gets deleted, there
- is no way to inform the Player to clear out the pointer reference. At least, not automatically.</p>
+is no way to inform the Player to clear out the pointer reference. At least, not automatically.</p>
 
 <p>So what I think I need to do, and will be working on, is have the GameEntity class track each item that references it, and when it gets
- deleted, notify the items that have a reference. Hopefully this won&rsquo;t add too much overhead, but I think it may be the only way to really
-  get this done.</p>
+deleted, notify the items that have a reference. Hopefully this won&rsquo;t add too much overhead, but I think it may be the only way to really
+get this done.</p>
 
 <p>According to wikipedia, this is a &ldquo;<a href="http://en.wikipedia.org/wiki/Dangling_pointer">Dangling Pointer</a>&rdquo; issue that I have run into, and
- as I suspected: &ldquo;A popular technique to avoid dangling pointers is to use <a href="http://en.wikipedia.org/wiki/Smart_pointer" title="Smart pointer">smart pointers</a>.
-  A smart pointer typically uses <a href="http://en.wikipedia.org/wiki/Reference_counting" title="Reference counting">reference counting</a> to
-   reclaim objects.&rdquo;</p>
+as I suspected: &ldquo;A popular technique to avoid dangling pointers is to use <a href="http://en.wikipedia.org/wiki/Smart_pointer" title="Smart pointer">smart pointers</a>.
+A smart pointer typically uses <a href="http://en.wikipedia.org/wiki/Reference_counting" title="Reference counting">reference counting</a> to
+reclaim objects.&rdquo;</p>
 
 <p>Interestingly, working with the DungeonHack source has greatly improved my understanding of things. I have owned the Torque game engine for
- many years now, yet I have never been able to wrap my head around the engine. Now that I am working with a much less complete code base
-  I really am starting to follow it. When I run into problems like this, I look inside a working engine and see how they did it. Now I can
-   see that they have created a smart pointer for their game entities, it tracks a list of references, and notifies them upon deletion. It
-    just feels good to actually understand what I am looking at , and to look at a huge game engine and think &ldquo;that&rsquo;s really not that complex
-     after all, it&rsquo;s just a well done compilation of many simple ideas&rdquo;. Anyway, just thought I&rsquo;d share that it is neat to see the nuts
-      and bolts where I could only see the whole engine before, it&rsquo;s like when Neo can <strong>see</strong> the code of the matrix.</p>
+many years now, yet I have never been able to wrap my head around the engine. Now that I am working with a much less complete code base
+I really am starting to follow it. When I run into problems like this, I look inside a working engine and see how they did it. Now I can
+see that they have created a smart pointer for their game entities, it tracks a list of references, and notifies them upon deletion. It
+just feels good to actually understand what I am looking at , and to look at a huge game engine and think &ldquo;that&rsquo;s really not that complex
+after all, it&rsquo;s just a well done compilation of many simple ideas&rdquo;. Anyway, just thought I&rsquo;d share that it is neat to see the nuts
+and bolts where I could only see the whole engine before, it&rsquo;s like when Neo can <strong>see</strong> the code of the matrix.</p>
 
   </div>
-  
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'superiorcodecom';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
 </div>
 
-
-
-
-<script src="http://localhost:1313/js/highlight.pack.js"></script>
+<script src="http://bsparks.github.io/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>
