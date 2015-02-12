@@ -8,16 +8,13 @@
   <title>New project &middot; Ben Sparks</title>
 
   
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/blog.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
@@ -32,47 +29,49 @@
 </head>
 <body class="theme-base-pp">
 
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
+
+<div class="row">
+
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
       <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
       <h1>Ben Sparks</h1>
       
     </div>
 
-    <ul class="sidebar-nav">
+    <ul class="sidebar-module">
       <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
       
     </ul>
 
-    <ul class="sidebar-nav">
-
-    </ul>
-
+    <div class="sidebar_module">
       <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
       
       
       <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
       
+    </div>
 
-    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
-       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
-  </div>
+    <div class="sidebar_module">
+      <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+         Powered by <a href="http://hugo.spf13.com">Hugo</a></p>
+    </div>
 </div>
 
 
+  <div class="col-sm-8 blog-main">
 
-<div class="content container">
-  <div class="post">
-    <h1>New project</h1>
-    <span class="post-date">Mar 1, 2010 &middot; 4 minute read</span>
+    <div class="blog-post">
 
-    <div class="tags-list">
-        Tags:
-        
-    </div>
+      <div class="blog-post-content">
+        <h2 class="blog-post-title">New project</h2>
+        <p class="blog-post-meta">Mar 1, 2010 &middot; 4 minute read</p>
 
-    <p>So I&rsquo;ve decided that my new focus will be on creating (and finishing!) an <a href="http://www.xbox.com/en-US/games/community/default.htm">Xbox Live Indie Game</a>.
+        <div class="blog-post-tags">
+            
+        </div>
+
+        <p>So I&rsquo;ve decided that my new focus will be on creating (and finishing!) an <a href="http://www.xbox.com/en-US/games/community/default.htm">Xbox Live Indie Game</a>.
 Since the launch of the XNA Game Studio, Microsoft has made vast improvements. When I first heard about it long ago, I didn&rsquo;t really think much of it.
 From what I had heard you were very limited on what was actually possible to create. Now however, you can create almost full arcade games.
 You can use networking, 2d or 3d, and even the Xbox Live Avatars. You can create games for Windows, Zune, and Xbox. In order to deploy your
@@ -165,8 +164,9 @@ remove the isolated areas. I also plan to cut the map in half and do a mirror on
 <p>I&rsquo;ve also been working on dungeon generation using Binary Trees and QuadTrees. Hopefully not going too far off topic, I plan to use these
 to generate buildings and other important map areas (ruins). I&rsquo;ll go more into that later&hellip;</p>
 
-  </div>
-  <div id="disqus_thread"></div>
+      </div>
+
+      <div id="disqus_thread"></div>
 <script type="text/javascript">
 (function() {
     
@@ -180,6 +180,10 @@ to generate buildings and other important map areas (ruins). I&rsquo;ll go more 
 })();
 </script>
 <noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+    </div>
+
+  </div>
 
 </div>
 

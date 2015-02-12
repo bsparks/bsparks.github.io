@@ -8,16 +8,13 @@
   <title>dotNet 4 New Features &middot; Ben Sparks</title>
 
   
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/blog.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
@@ -32,59 +29,61 @@
 </head>
 <body class="theme-base-pp">
 
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
+
+<div class="row">
+
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
       <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
       <h1>Ben Sparks</h1>
       
     </div>
 
-    <ul class="sidebar-nav">
+    <ul class="sidebar-module">
       <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
       
     </ul>
 
-    <ul class="sidebar-nav">
-
-    </ul>
-
+    <div class="sidebar_module">
       <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
       
       
       <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
       
+    </div>
 
-    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
-       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
-  </div>
+    <div class="sidebar_module">
+      <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+         Powered by <a href="http://hugo.spf13.com">Hugo</a></p>
+    </div>
 </div>
 
 
+  <div class="col-sm-8 blog-main">
 
-<div class="content container">
-  <div class="post">
-    <h1>dotNet 4 New Features</h1>
-    <span class="post-date">May 16, 2010 &middot; 3 minute read</span>
+    <div class="blog-post">
 
-    <div class="tags-list">
-        Tags:
-        
-        <span class="label label-info">
-            <a href="/tags/c">c#</a>
-        </span>
-        
-        <span class="label label-info">
-            <a href="/tags/programming">programming</a>
-        </span>
-        
-        <span class="label label-info">
-            <a href="/tags/dotNet">dotNet</a>
-        </span>
-        
-    </div>
+      <div class="blog-post-content">
+        <h2 class="blog-post-title">dotNet 4 New Features</h2>
+        <p class="blog-post-meta">May 16, 2010 &middot; 3 minute read</p>
 
-    <p>.Net 4 has been out for a couple of weeks now and I have started to delve into the new features. Now we are up to C# version 4 as well, and one of the new features that I find really exciting is Optional and Named Parameters. Being able to use optional parameters in functions is something that is built into C++ and until now has been completely missing from C#. In the past, you basically had to override a function several times in order to give the caller more options for leaving parameters out. I am surprised really that it took this long to get them in C#, but I&rsquo;m glad they are here now! Since overriding functions was the only way to do it in the past, I have to wonder if behind the scenes that is all that Microsoft is doing, generating overrides for functions, perhaps someday I&rsquo;ll look into that. For now let me explain briefly how these work in C# 4.0.</p>
+        <div class="blog-post-tags">
+            
+            <span class="label label-info">
+                <a href="/tags/c">c#</a>
+            </span>
+            
+            <span class="label label-info">
+                <a href="/tags/programming">programming</a>
+            </span>
+            
+            <span class="label label-info">
+                <a href="/tags/dotNet">dotNet</a>
+            </span>
+            
+        </div>
+
+        <p>.Net 4 has been out for a couple of weeks now and I have started to delve into the new features. Now we are up to C# version 4 as well, and one of the new features that I find really exciting is Optional and Named Parameters. Being able to use optional parameters in functions is something that is built into C++ and until now has been completely missing from C#. In the past, you basically had to override a function several times in order to give the caller more options for leaving parameters out. I am surprised really that it took this long to get them in C#, but I&rsquo;m glad they are here now! Since overriding functions was the only way to do it in the past, I have to wonder if behind the scenes that is all that Microsoft is doing, generating overrides for functions, perhaps someday I&rsquo;ll look into that. For now let me explain briefly how these work in C# 4.0.</p>
 
 <p>Much like in C++ optional parameters must come after required parameters in the parameter list:</p>
 
@@ -132,8 +131,9 @@ namespace Net4Tests
 }
 </code></pre>
 
-  </div>
-  <div id="disqus_thread"></div>
+      </div>
+
+      <div id="disqus_thread"></div>
 <script type="text/javascript">
 (function() {
     
@@ -147,6 +147,10 @@ namespace Net4Tests
 })();
 </script>
 <noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+    </div>
+
+  </div>
 
 </div>
 

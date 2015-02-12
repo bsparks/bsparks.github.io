@@ -8,16 +8,13 @@
   <title>First Post Using Hugo &middot; Ben Sparks</title>
 
   
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/poole-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-overrides.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/hyde-x.css">
-  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/blog.css">
+  <link rel="stylesheet" href="http://bsparks.github.io/css/highlight/sunburst.css">
 
   
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
@@ -32,51 +29,53 @@
 </head>
 <body class="theme-base-pp">
 
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
+
+<div class="row">
+
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
       <img src="http://www.gravatar.com/avatar/7034af3e21202aa54123efe3b3a8c636.png?s=200" alt="gravatar">
       <h1>Ben Sparks</h1>
       
     </div>
 
-    <ul class="sidebar-nav">
+    <ul class="sidebar-module">
       <li class="sidebar-nav-item"><a href="http://bsparks.github.io/">Blog</a></li>
       
     </ul>
 
-    <ul class="sidebar-nav">
-
-    </ul>
-
+    <div class="sidebar_module">
       <a href="https://twitter.com/warspawn"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
       
       
       <a href="https://github.com/bsparks"><i class="fa fa-github-square"></i></a>&nbsp;&nbsp;
       
+    </div>
 
-    <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
-       Powered by <a href="http://hugo.spf13.com">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
-  </div>
+    <div class="sidebar_module">
+      <p>Copyright &copy; 2015 <a href="http://bsparks.github.io/license">License</a><br/>
+         Powered by <a href="http://hugo.spf13.com">Hugo</a></p>
+    </div>
 </div>
 
 
+  <div class="col-sm-8 blog-main">
 
-<div class="content container">
-  <div class="post">
-    <h1>First Post Using Hugo</h1>
-    <span class="post-date">Jan 26, 2015 &middot; 1 minute read</span>
+    <div class="blog-post">
 
-    <div class="tags-list">
-        Tags:
-        
-        <span class="label label-info">
-            <a href="/tags/website">website</a>
-        </span>
-        
-    </div>
+      <div class="blog-post-content">
+        <h2 class="blog-post-title">First Post Using Hugo</h2>
+        <p class="blog-post-meta">Jan 26, 2015 &middot; 1 minute read</p>
 
-    <p>Well I&rsquo;ve been thinking about switching from Wordpress to a static site generator for some time. Now I&rsquo;ve done it.
+        <div class="blog-post-tags">
+            
+            <span class="label label-info">
+                <a href="/tags/website">website</a>
+            </span>
+            
+        </div>
+
+        <p>Well I&rsquo;ve been thinking about switching from Wordpress to a static site generator for some time. Now I&rsquo;ve done it.
 There are several generators out there, but I&rsquo;ve decided to go with <a href="http://hugo.spf13.com/">Hugo</a>.
 I don&rsquo;t really get all that much benefit from the WYSIWYG aspects of Wordpress, and it just opens up yourself to hacking and spam because of the ability to
 edit online. I&rsquo;m also not a huge fan of PHP, though the application has served me well enough for years I suppose.</p>
@@ -85,8 +84,9 @@ edit online. I&rsquo;m also not a huge fan of PHP, though the application has se
 Wordpress. Sadly, I haven&rsquo;t found a faster way to do it other than manually. The good news is that I never had all that many entries :)
 Oh and it helps that markdown and html are just fine together.</p>
 
-  </div>
-  <div id="disqus_thread"></div>
+      </div>
+
+      <div id="disqus_thread"></div>
 <script type="text/javascript">
 (function() {
     
@@ -100,6 +100,10 @@ Oh and it helps that markdown and html are just fine together.</p>
 })();
 </script>
 <noscript>Please enable JavaScript to view the comments powered by <a href="http://disqus.com/?ref_noscript">Disqus.</a></noscript>
+
+    </div>
+
+  </div>
 
 </div>
 
